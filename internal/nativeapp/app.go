@@ -775,7 +775,7 @@ func (a *App) question(c *ui.Context) {
 			ui.Text(c, "下次复习："+parse(r.Review.DueAt).In(zone).Format("01月02日 15:04")).FontSize(a.qs(12)).TextColor(t.TextMuted)
 		}
 		a.Rich.View(c, q.Explanation, a.qs(16)).Label("本题解析")
-		if q.Source.Workbook != "" {
+		if q.Source.Workbook != "" && (q.History.Chosen != "" || q.History.Result != "") {
 			ui.Textf(c, "原表作答 %s · 原表结果 %s\n来源 %s · 第 %d 行；原表无日期，不计为本机新作答。", q.History.Chosen, q.History.Result, q.Source.Workbook, q.Source.Row).FontSize(a.qs(11)).TextColor(t.TextMuted)
 		}
 		ui.Row(c).Gap(a.qs(12)).Children(func() {

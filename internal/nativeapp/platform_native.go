@@ -138,3 +138,5 @@ func (a *App) exportQuestionReports() {
 	}
 	a.message = ""
 }
+
+func sanitizeInitialQuestions([]Question) {}

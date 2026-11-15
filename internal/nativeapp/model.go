@@ -152,6 +152,7 @@ func NewModel(assets fs.FS, disk *store.Store) (*Model, error) {
 	if len(m.Questions) == 0 {
 		return nil, fmt.Errorf("题库文件不包含任何题目")
 	}
+	sanitizeInitialQuestions(m.Questions)
 	m.Subjects = deriveSubjects(m.Questions)
 	Subjects = slices.Clone(m.Subjects)
 	if disk != nil {

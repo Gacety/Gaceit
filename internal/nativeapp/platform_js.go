@@ -167,3 +167,11 @@ func (a *App) exportQuestionReports() {
 	triggerBrowserDownload(questionReportsFilename, data)
 	a.message = ""
 }
+
+func sanitizeInitialQuestions(questions []Question) {
+	for i := range questions {
+		questions[i].History.Chosen = ""
+		questions[i].History.Result = ""
+		questions[i].History.InWrongBook = false
+	}
+}
