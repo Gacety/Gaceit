@@ -1,0 +1,9 @@
+package main
+var Ratio float
+var Paper vec4
+func Fragment(dst vec4,pos vec2) vec4 {
+ coverage:=image1At(pos*Ratio).r
+ // Temporary feedback over the cached opaque page. Persistent erasure remains
+ // a per-stroke transparency mask committed at the end of the gesture.
+ return mix(image0At(pos*Ratio),Paper,coverage)
+}

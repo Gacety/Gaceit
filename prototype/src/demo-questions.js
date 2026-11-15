@@ -1,0 +1,11 @@
+export const subjects = ['数据结构', '计算机组成原理', '操作系统', '计算机网络'];
+export const questions = [
+  { id: 'ds-insert', subject: subjects[0], chapter: '线性表', title: '顺序表的插入操作', text: '假设顺序表中有 n 个元素，在第 i 个位置插入一个新元素，需要移动多少个元素？条件：1 ≤ i ≤ n + 1。', options: ['i − 1', 'n − i', 'n − i + 1', 'n + 1'], answer: 2, explanation: '原来第 i 个至第 n 个元素都需要后移一位，共 n − i + 1 个。若在表尾插入，i = n + 1，需要移动 0 个元素。' },
+  { id: 'ds-tree', subject: subjects[0], chapter: '树与二叉树', title: '二叉树的叶子结点', text: '一棵非空二叉树中，度为 2 的结点有 7 个。该二叉树的叶子结点共有多少个？', options: ['6 个', '7 个', '8 个', '无法确定'], answer: 2, explanation: '任意非空二叉树中，叶子结点数 n₀ 与度为 2 的结点数 n₂ 满足 n₀ = n₂ + 1，因此为 8 个。' },
+  { id: 'co-address', subject: subjects[1], chapter: '存储系统', title: '按字节编址的地址空间', text: '某计算机采用 32 位地址，按字节编址，其最大可寻址空间是多少？', options: ['2 GB', '4 GB', '8 GB', '32 GB'], answer: 1, explanation: '32 位地址共有 2³² 个不同地址，每个地址对应 1 字节，总共 2³² B = 4 GB。此处 GB 按题目常用的二进制容量约定计算。' },
+  { id: 'co-complement', subject: subjects[1], chapter: '数据的表示', title: '补码的表示范围', text: '使用 8 位补码表示有符号整数时，其表示范围是多少？', options: ['−127 ～ 127', '−128 ～ 127', '−128 ～ 128', '0 ～ 255'], answer: 1, explanation: 'n 位补码的整数范围是 −2ⁿ⁻¹ 至 2ⁿ⁻¹ − 1。8 位补码因此可表示 −128 至 127。' },
+  { id: 'os-fifo', subject: subjects[2], chapter: '内存管理', title: '页面置换算法', text: '某系统为一个进程分配 3 个物理页框，初始为空。页面访问序列为 1、2、3、1、4、2，采用 FIFO 页面置换算法，共发生多少次缺页？', options: ['3 次', '4 次', '5 次', '6 次'], answer: 1, explanation: '访问 1、2、3 时各缺页一次；再次访问 1 命中；访问 4 时换出最先进入的 1，发生缺页；最后访问 2 命中。因此共发生 4 次缺页。FIFO 的入队顺序不会因命中而改变。' },
+  { id: 'os-semaphore', subject: subjects[2], chapter: '进程同步', title: '互斥信号量的初值', text: '使用一个信号量实现对单个临界资源的互斥访问，该信号量的初值通常应设置为多少？', options: ['−1', '0', '1', '进程总数'], answer: 2, explanation: '互斥信号量初值设为 1，表示临界资源最初可用。进入临界区前执行 P 操作，退出后执行 V 操作。' },
+  { id: 'net-subnet', subject: subjects[3], chapter: '网络层', title: '子网中的可用主机地址', text: '一个采用 /26 前缀的常规 IPv4 子网，除去网络地址和广播地址，最多可以分配多少个主机地址？', options: ['30 个', '62 个', '64 个', '126 个'], answer: 1, explanation: '/26 留下 6 位主机位，共 2⁶ = 64 个地址。去掉网络地址和广播地址，可分配 62 个主机地址。' },
+  { id: 'net-tcp', subject: subjects[3], chapter: '传输层', title: 'TCP 的可靠传输', text: '以下哪项机制用于 TCP 的可靠传输？', options: ['确认与超时重传', '仅依靠 IP 层保证不丢包', '禁止数据分段', '省略序号与确认号'], answer: 0, explanation: 'TCP 结合序号、确认、重传等机制提供可靠传输；IP 层本身不保证报文不丢失、不重复或按序到达。' },
+];

@@ -1,0 +1,7 @@
+@font-face {
+  font-family: '408 Noto Sans SC';
+  src: url('/fonts/NotoSansSC-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}

@@ -1,0 +1,19 @@
+package main
+var Stamp [2]vec4
+var Rect vec4
+var Origin vec2
+var Zoom float
+var Color vec4
+func Fragment(dst vec4,pos vec2) vec4 {
+ s0:=Stamp[0]
+ s1:=Stamp[1]
+ delta:=(dst.xy/pixelScale()-Origin)/Zoom-s0.xy
+ c,s:=cos(s0.w),sin(s0.w)
+ local:=vec2(delta.x*c+delta.y*s,-delta.x*s+delta.y*c)
+ uv:=local/s1.xy+0.5
+ if uv.x<0 || uv.x>1 || uv.y<0 || uv.y>1 {return vec4(0)}
+ // Half-texel inset avoids adjacent stamps bleeding into this rectangle.
+ texel:=Rect.xy+vec2(0.5)+uv*(Rect.zw-1)
+ a:=image0Sample(texel).r*Color.a*s0.z
+ return vec4(Color.rgb*a,a)
+}

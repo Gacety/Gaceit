@@ -1,0 +1,55 @@
+{
+  "library": "Phosphor Icons",
+  "repository": "https://github.com/phosphor-icons/core",
+  "commit": "2b75f3ad12b420c9504ef05df8d2564a28f8500e",
+  "weight": "regular",
+  "license": "MIT",
+  "assets": [
+    {
+      "file": "arrow-u-up-left.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/arrow-u-up-left.svg",
+      "sha256": "37975867f2e89f745250d3601a5674ca37883a8d79f52abcb082beba4df28df7"
+    },
+    {
+      "file": "eraser.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/eraser.svg",
+      "sha256": "3e2e2a1f466051a32abed16cd8e6eadf30f9c560aeb6dcf2545f9c8a95ddfdef"
+    },
+    {
+      "file": "hand-palm.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/hand-palm.svg",
+      "sha256": "a5a91e54f1451355ceb0265995e8b51ea97b8c79c4d1caeb798ff92b8a4dd85a"
+    },
+    {
+      "file": "highlighter.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/highlighter.svg",
+      "sha256": "a845539f79ae5c696b46f9a1142fb9180e46bd2098c0912f3b90a4365be9c730"
+    },
+    {
+      "file": "lasso.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/lasso.svg",
+      "sha256": "d7a8e408b0f098d99f232dea147385cd6c3ba012ad766797163f5caf83d2fb80"
+    },
+    {
+      "file": "pen-nib.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/pen-nib.svg",
+      "sha256": "1dd351c36da3639df0efe0c73d2524f5c00ca3e1ca2c8f66cc48d0e60f162736"
+    },
+    {
+      "file": "pencil-simple.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/pencil-simple.svg",
+      "sha256": "999530da442f44d8cf0054364373d16150f3e082c2ac294a4988a9c3a4295c28"
+    },
+    {
+      "file": "sliders-horizontal.svg",
+      "url": "https://raw.githubusercontent.com/phosphor-icons/core/2b75f3ad12b420c9504ef05df8d2564a28f8500e/assets/regular/sliders-horizontal.svg",
+      "sha256": "1d937baa3bc51ec4052364edf30cf8991d550920534f5d413eb9f60535cc1916"
+    },
+    {
+      "file": "arrow-u-up-right.svg",
+      "derivedFrom": "arrow-u-up-left.svg",
+      "modification": "Horizontal mirror of the pinned Phosphor Regular icon",
+      "sha256": "d2db8ab0e32030a53ff10272ec612859a1d6c51cef28a7105d5626248b993416"
+    }
+  ]
+}

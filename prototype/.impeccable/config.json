@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "sfmono-regular",
+        "createdAt": "2026-11-08T19:10:45.394Z",
+        "reason": "Agent domain decision: imported computer-science code blocks use a monospace code font only in .rich-text pre/code; the approved Chinese interface typography is unchanged."
+      }
+    ]
+  }
+}

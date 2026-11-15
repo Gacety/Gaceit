@@ -1,0 +1,3308 @@
+[
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": []
+    },
+    "outcome": "wrong",
+    "now": "2026-11-09T08:00:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "learning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 1,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:00:00.000Z",
+      "dueAt": "2026-11-09T08:10:00.000Z",
+      "lastOutcome": "wrong",
+      "intervalDays": 0,
+      "halfLifeDays": 1.5691681957935015
+    },
+    "qualified": true,
+    "due": true,
+    "next": null
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "learning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 1,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:00:00.000Z",
+        "dueAt": "2026-11-09T08:10:00.000Z",
+        "lastOutcome": "wrong",
+        "intervalDays": 0,
+        "halfLifeDays": 1.5691681957935015
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T08:01:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "learning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 1,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:00:00.000Z",
+      "dueAt": "2026-11-09T08:10:00.000Z",
+      "lastOutcome": "wrong",
+      "intervalDays": 0,
+      "halfLifeDays": 1.5691681957935015
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-09T08:10:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "learning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 1,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:00:00.000Z",
+        "dueAt": "2026-11-09T08:10:00.000Z",
+        "lastOutcome": "wrong",
+        "intervalDays": 0,
+        "halfLifeDays": 1.5691681957935015
+      }
+    },
+    "outcome": "unknown",
+    "now": "2026-11-09T08:11:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 2,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:11:00.000Z",
+      "dueAt": "2026-11-09T08:21:00.000Z",
+      "lastOutcome": "unknown",
+      "intervalDays": 0,
+      "halfLifeDays": 1.1118357875683889
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-09T08:11:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 2,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:11:00.000Z",
+        "dueAt": "2026-11-09T08:21:00.000Z",
+        "lastOutcome": "unknown",
+        "intervalDays": 0,
+        "halfLifeDays": 1.1118357875683889
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T08:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 2.3031390353437007
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-09T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 2.3031390353437007
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 2.3031390353437007
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 2.3031390353437007
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-10T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 2.3031390353437007
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 2.3031390353437007
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-14T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0700979613738124,
+        1.7783719033579997,
+        -1.100866512330449
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 2,
+      "reps": 4,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-14T09:21:00.000Z",
+      "dueAt": "2026-11-21T09:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 7,
+      "halfLifeDays": 4.5340348003044655
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.0700979613738124,
+          1.7783719033579997,
+          -1.100866512330449
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 2,
+        "reps": 4,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-14T09:21:00.000Z",
+        "dueAt": "2026-11-21T09:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 7,
+        "halfLifeDays": 4.5340348003044655
+      }
+    },
+    "outcome": "uncertain",
+    "now": "2026-11-15T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1.0700979613738124,
+        1.7783719033579997,
+        -1.100866512330449
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 0,
+      "reps": 5,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-15T09:21:00.000Z",
+      "dueAt": "2026-11-16T09:21:00.000Z",
+      "lastOutcome": "uncertain",
+      "intervalDays": 1,
+      "halfLifeDays": 3.991782257184023
+    },
+    "qualified": true,
+    "due": false,
+    "next": "2026-11-21T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1.0700979613738124,
+          1.7783719033579997,
+          -1.100866512330449
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 1,
+        "streak": 0,
+        "reps": 5,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-15T09:21:00.000Z",
+        "dueAt": "2026-11-16T09:21:00.000Z",
+        "lastOutcome": "uncertain",
+        "intervalDays": 1,
+        "halfLifeDays": 3.991782257184023
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-15T09:31:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1.0700979613738124,
+        1.7783719033579997,
+        -1.100866512330449
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 0,
+      "reps": 5,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-15T09:21:00.000Z",
+      "dueAt": "2026-11-16T09:21:00.000Z",
+      "lastOutcome": "uncertain",
+      "intervalDays": 1,
+      "halfLifeDays": 3.991782257184023
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-16T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "正确"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:31:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1.0700979613738124,
+          1.7783719033579997,
+          -1.100866512330449
+        ],
+        "priorRight": 0.25,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 1,
+        "streak": 0,
+        "reps": 5,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-15T09:21:00.000Z",
+        "dueAt": "2026-11-16T09:21:00.000Z",
+        "lastOutcome": "uncertain",
+        "intervalDays": 1,
+        "halfLifeDays": 3.991782257184023
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-18T09:31:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.094629359872629,
+        1.8152068667290913,
+        -1.0620624177237326
+      ],
+      "priorRight": 0.25,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 3,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 1,
+      "reps": 6,
+      "lapses": 0,
+      "trained": 2,
+      "lastReviewAt": "2026-11-18T09:31:00.000Z",
+      "dueAt": "2026-11-21T09:31:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 6.4431757519826895
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-16T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": []
+    },
+    "outcome": "wrong",
+    "now": "2026-11-09T08:00:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "learning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 1,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:00:00.000Z",
+      "dueAt": "2026-11-09T08:10:00.000Z",
+      "lastOutcome": "wrong",
+      "intervalDays": 0,
+      "halfLifeDays": 0.7221178221335766
+    },
+    "qualified": true,
+    "due": true,
+    "next": null
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "learning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 1,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:00:00.000Z",
+        "dueAt": "2026-11-09T08:10:00.000Z",
+        "lastOutcome": "wrong",
+        "intervalDays": 0,
+        "halfLifeDays": 0.7221178221335766
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T08:01:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "learning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 1,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:00:00.000Z",
+      "dueAt": "2026-11-09T08:10:00.000Z",
+      "lastOutcome": "wrong",
+      "intervalDays": 0,
+      "halfLifeDays": 0.7221178221335766
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-09T08:10:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "learning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 1,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:00:00.000Z",
+        "dueAt": "2026-11-09T08:10:00.000Z",
+        "lastOutcome": "wrong",
+        "intervalDays": 0,
+        "halfLifeDays": 0.7221178221335766
+      }
+    },
+    "outcome": "unknown",
+    "now": "2026-11-09T08:11:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 2,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:11:00.000Z",
+      "dueAt": "2026-11-09T08:21:00.000Z",
+      "lastOutcome": "unknown",
+      "intervalDays": 0,
+      "halfLifeDays": 0.5368657981635059
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-09T08:11:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 2,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:11:00.000Z",
+        "dueAt": "2026-11-09T08:21:00.000Z",
+        "lastOutcome": "unknown",
+        "intervalDays": 0,
+        "halfLifeDays": 0.5368657981635059
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T08:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 1.7442821243200433
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-09T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 1.7442821243200433
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 1.7442821243200433
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 1.7442821243200433
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-10T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 1.7442821243200433
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 1.7442821243200433
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-14T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0715700669246895,
+        1.7715700669246894,
+        -1.0868377881136493
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 2,
+      "reps": 4,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-14T09:21:00.000Z",
+      "dueAt": "2026-11-21T09:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 7,
+      "halfLifeDays": 3.6263220460104644
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.0715700669246895,
+          1.7715700669246894,
+          -1.0868377881136493
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 2,
+        "reps": 4,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-14T09:21:00.000Z",
+        "dueAt": "2026-11-21T09:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 7,
+        "halfLifeDays": 3.6263220460104644
+      }
+    },
+    "outcome": "uncertain",
+    "now": "2026-11-15T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1.0715700669246895,
+        1.7715700669246894,
+        -1.0868377881136493
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 0,
+      "reps": 5,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-15T09:21:00.000Z",
+      "dueAt": "2026-11-16T09:21:00.000Z",
+      "lastOutcome": "uncertain",
+      "intervalDays": 1,
+      "halfLifeDays": 3.236624980135678
+    },
+    "qualified": true,
+    "due": false,
+    "next": "2026-11-21T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1.0715700669246895,
+          1.7715700669246894,
+          -1.0868377881136493
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 1,
+        "streak": 0,
+        "reps": 5,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-15T09:21:00.000Z",
+        "dueAt": "2026-11-16T09:21:00.000Z",
+        "lastOutcome": "uncertain",
+        "intervalDays": 1,
+        "halfLifeDays": 3.236624980135678
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-15T09:31:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1.0715700669246895,
+        1.7715700669246894,
+        -1.0868377881136493
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 0,
+      "reps": 5,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-15T09:21:00.000Z",
+      "dueAt": "2026-11-16T09:21:00.000Z",
+      "lastOutcome": "uncertain",
+      "intervalDays": 1,
+      "halfLifeDays": 3.236624980135678
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-16T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "错误"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:31:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1.0715700669246895,
+          1.7715700669246894,
+          -1.0868377881136493
+        ],
+        "priorRight": 0,
+        "priorWrong": 0.5,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 1,
+        "streak": 0,
+        "reps": 5,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-15T09:21:00.000Z",
+        "dueAt": "2026-11-16T09:21:00.000Z",
+        "lastOutcome": "uncertain",
+        "intervalDays": 1,
+        "halfLifeDays": 3.236624980135678
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-18T09:31:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.102873196425173,
+        1.8158813019835391,
+        -1.032603902772879
+      ],
+      "priorRight": 0,
+      "priorWrong": 0.5,
+      "priorUnknown": 0,
+      "right": 3,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 1,
+      "reps": 6,
+      "lapses": 0,
+      "trained": 2,
+      "lastReviewAt": "2026-11-18T09:31:00.000Z",
+      "dueAt": "2026-11-21T09:31:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 5.500449221403962
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-16T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": []
+    },
+    "outcome": "wrong",
+    "now": "2026-11-09T08:00:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "learning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 1,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:00:00.000Z",
+      "dueAt": "2026-11-09T08:10:00.000Z",
+      "lastOutcome": "wrong",
+      "intervalDays": 0,
+      "halfLifeDays": 0.8705505632961241
+    },
+    "qualified": true,
+    "due": true,
+    "next": null
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "learning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 1,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:00:00.000Z",
+        "dueAt": "2026-11-09T08:10:00.000Z",
+        "lastOutcome": "wrong",
+        "intervalDays": 0,
+        "halfLifeDays": 0.8705505632961241
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T08:01:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "learning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 1,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:00:00.000Z",
+      "dueAt": "2026-11-09T08:10:00.000Z",
+      "lastOutcome": "wrong",
+      "intervalDays": 0,
+      "halfLifeDays": 0.8705505632961241
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-09T08:10:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "learning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 1,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:00:00.000Z",
+        "dueAt": "2026-11-09T08:10:00.000Z",
+        "lastOutcome": "wrong",
+        "intervalDays": 0,
+        "halfLifeDays": 0.8705505632961241
+      }
+    },
+    "outcome": "unknown",
+    "now": "2026-11-09T08:11:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 0,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 0,
+      "reps": 2,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:11:00.000Z",
+      "dueAt": "2026-11-09T08:21:00.000Z",
+      "lastOutcome": "unknown",
+      "intervalDays": 0,
+      "halfLifeDays": 0.616829523919197
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-09T08:11:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 0,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 0,
+        "reps": 2,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:11:00.000Z",
+        "dueAt": "2026-11-09T08:21:00.000Z",
+        "lastOutcome": "unknown",
+        "intervalDays": 0,
+        "halfLifeDays": 0.616829523919197
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T08:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 2.004085035786575
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-09T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 2.004085035786575
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-09T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 2.004085035786575
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 2.004085035786575
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-10T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-09T08:21:00.000Z",
+      "dueAt": "2026-11-12T08:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 2.004085035786575
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-09T08:21:00.000Z",
+        "dueAt": "2026-11-12T08:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 2.004085035786575
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-14T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0720565394153014,
+        1.7720565394153014,
+        -1.0980966647012091
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 0,
+      "streak": 2,
+      "reps": 4,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-14T09:21:00.000Z",
+      "dueAt": "2026-11-21T09:21:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 7,
+      "halfLifeDays": 4.070425841148664
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-12T08:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.0720565394153014,
+          1.7720565394153014,
+          -1.0980966647012091
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 0,
+        "streak": 2,
+        "reps": 4,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-14T09:21:00.000Z",
+        "dueAt": "2026-11-21T09:21:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 7,
+        "halfLifeDays": 4.070425841148664
+      }
+    },
+    "outcome": "uncertain",
+    "now": "2026-11-15T09:21:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1.0720565394153014,
+        1.7720565394153014,
+        -1.0980966647012091
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 0,
+      "reps": 5,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-15T09:21:00.000Z",
+      "dueAt": "2026-11-16T09:21:00.000Z",
+      "lastOutcome": "uncertain",
+      "intervalDays": 1,
+      "halfLifeDays": 3.5847677559677136
+    },
+    "qualified": true,
+    "due": false,
+    "next": "2026-11-21T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:21:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1.0720565394153014,
+          1.7720565394153014,
+          -1.0980966647012091
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 1,
+        "streak": 0,
+        "reps": 5,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-15T09:21:00.000Z",
+        "dueAt": "2026-11-16T09:21:00.000Z",
+        "lastOutcome": "uncertain",
+        "intervalDays": 1,
+        "halfLifeDays": 3.5847677559677136
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-15T09:31:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "relearning",
+      "weights": [
+        1.0720565394153014,
+        1.7720565394153014,
+        -1.0980966647012091
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 0,
+      "reps": 5,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-15T09:21:00.000Z",
+      "dueAt": "2026-11-16T09:21:00.000Z",
+      "lastOutcome": "uncertain",
+      "intervalDays": 1,
+      "halfLifeDays": 3.5847677559677136
+    },
+    "qualified": false,
+    "due": false,
+    "next": "2026-11-16T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": "不会"
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": false,
+          "time": "2026-11-09T08:00:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:01:00.000Z"
+        },
+        {
+          "correct": false,
+          "time": "2026-11-09T08:11:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T08:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-09T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-10T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:21:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-15T09:31:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "relearning",
+        "weights": [
+          1.0720565394153014,
+          1.7720565394153014,
+          -1.0980966647012091
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 1,
+        "unknown": 1,
+        "uncertain": 1,
+        "streak": 0,
+        "reps": 5,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-15T09:21:00.000Z",
+        "dueAt": "2026-11-16T09:21:00.000Z",
+        "lastOutcome": "uncertain",
+        "intervalDays": 1,
+        "halfLifeDays": 3.5847677559677136
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-18T09:31:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0999784623987527,
+        1.8115863113295672,
+        -1.0539312178199287
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 3,
+      "wrong": 1,
+      "unknown": 1,
+      "uncertain": 1,
+      "streak": 1,
+      "reps": 6,
+      "lapses": 0,
+      "trained": 2,
+      "lastReviewAt": "2026-11-18T09:31:00.000Z",
+      "dueAt": "2026-11-21T09:31:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 5.943556315472068
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-16T09:21:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": []
+    },
+    "outcome": "right",
+    "now": "2026-11-11T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1,
+        1.7,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 1,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 1,
+      "reps": 1,
+      "lapses": 0,
+      "trained": 0,
+      "lastReviewAt": "2026-11-11T15:30:00.000Z",
+      "dueAt": "2026-11-14T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 3,
+      "halfLifeDays": 6.498019170849885
+    },
+    "qualified": true,
+    "due": true,
+    "next": null
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1,
+          1.7,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 1,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 1,
+        "reps": 1,
+        "lapses": 0,
+        "trained": 0,
+        "lastReviewAt": "2026-11-11T15:30:00.000Z",
+        "dueAt": "2026-11-14T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 3,
+        "halfLifeDays": 6.498019170849885
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-14T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0176441012615076,
+        1.7176441012615076,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 2,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 2,
+      "reps": 2,
+      "lapses": 0,
+      "trained": 1,
+      "lastReviewAt": "2026-11-14T15:30:00.000Z",
+      "dueAt": "2026-11-21T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 7,
+      "halfLifeDays": 10.903804417261632
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-14T15:30:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.0176441012615076,
+          1.7176441012615076,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 2,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 2,
+        "reps": 2,
+        "lapses": 0,
+        "trained": 1,
+        "lastReviewAt": "2026-11-14T15:30:00.000Z",
+        "dueAt": "2026-11-21T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 7,
+        "halfLifeDays": 10.903804417261632
+      }
+    },
+    "outcome": "right",
+    "now": "2026-11-21T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0376988271088599,
+        1.7460161022197305,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 3,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 3,
+      "reps": 3,
+      "lapses": 0,
+      "trained": 2,
+      "lastReviewAt": "2026-11-21T15:30:00.000Z",
+      "dueAt": "2026-12-05T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 14,
+      "halfLifeDays": 16.701287591997918
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-11-21T15:30:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-21T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.0376988271088599,
+          1.7460161022197305,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 3,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 3,
+        "reps": 3,
+        "lapses": 0,
+        "trained": 2,
+        "lastReviewAt": "2026-11-21T15:30:00.000Z",
+        "dueAt": "2026-12-05T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 14,
+        "halfLifeDays": 16.701287591997918
+      }
+    },
+    "outcome": "right",
+    "now": "2026-12-05T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0605804588916066,
+        1.785670513863741,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 4,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 4,
+      "reps": 4,
+      "lapses": 0,
+      "trained": 3,
+      "lastReviewAt": "2026-12-05T15:30:00.000Z",
+      "dueAt": "2027-01-04T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 30,
+      "halfLifeDays": 24.794040429354897
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2026-12-05T15:30:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-21T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-12-05T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.0605804588916066,
+          1.785670513863741,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 4,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 4,
+        "reps": 4,
+        "lapses": 0,
+        "trained": 3,
+        "lastReviewAt": "2026-12-05T15:30:00.000Z",
+        "dueAt": "2027-01-04T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 30,
+        "halfLifeDays": 24.794040429354897
+      }
+    },
+    "outcome": "right",
+    "now": "2027-01-04T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.0890532939473982,
+        1.842651674379244,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 5,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 5,
+      "reps": 5,
+      "lapses": 0,
+      "trained": 4,
+      "lastReviewAt": "2027-01-04T15:30:00.000Z",
+      "dueAt": "2027-03-05T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 60,
+      "halfLifeDays": 36.997290067136475
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2027-01-04T15:30:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-21T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-12-05T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-01-04T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.0890532939473982,
+          1.842651674379244,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 5,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 5,
+        "reps": 5,
+        "lapses": 0,
+        "trained": 4,
+        "lastReviewAt": "2027-01-04T15:30:00.000Z",
+        "dueAt": "2027-03-05T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 60,
+        "halfLifeDays": 36.997290067136475
+      }
+    },
+    "outcome": "right",
+    "now": "2027-03-05T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.1195478377362562,
+        1.910890062285463,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 6,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 6,
+      "reps": 6,
+      "lapses": 0,
+      "trained": 5,
+      "lastReviewAt": "2027-03-05T15:30:00.000Z",
+      "dueAt": "2027-07-03T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 120,
+      "halfLifeDays": 55.725024663179376
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2027-03-05T15:30:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-21T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-12-05T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-01-04T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-03-05T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.1195478377362562,
+          1.910890062285463,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 6,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 6,
+        "reps": 6,
+        "lapses": 0,
+        "trained": 5,
+        "lastReviewAt": "2027-03-05T15:30:00.000Z",
+        "dueAt": "2027-07-03T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 120,
+        "halfLifeDays": 55.725024663179376
+      }
+    },
+    "outcome": "right",
+    "now": "2027-07-03T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.1488907380298812,
+        1.9828321002388718,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 7,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 7,
+      "reps": 7,
+      "lapses": 0,
+      "trained": 6,
+      "lastReviewAt": "2027-07-03T15:30:00.000Z",
+      "dueAt": "2028-02-28T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 240,
+      "halfLifeDays": 84.15466642042023
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2027-07-03T15:30:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-21T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-12-05T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-01-04T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-03-05T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-07-03T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.1488907380298812,
+          1.9828321002388718,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 7,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 7,
+        "reps": 7,
+        "lapses": 0,
+        "trained": 6,
+        "lastReviewAt": "2027-07-03T15:30:00.000Z",
+        "dueAt": "2028-02-28T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 240,
+        "halfLifeDays": 84.15466642042023
+      }
+    },
+    "outcome": "right",
+    "now": "2028-02-28T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.1734975898774778,
+        2.0480196912804485,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 8,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 8,
+      "reps": 8,
+      "lapses": 0,
+      "trained": 7,
+      "lastReviewAt": "2028-02-28T15:30:00.000Z",
+      "dueAt": "2029-02-27T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 365,
+      "halfLifeDays": 125.03360067000636
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2028-02-28T15:30:00.000Z"
+  },
+  {
+    "question": {
+      "history": {
+        "result": ""
+      },
+      "errata": ""
+    },
+    "record": {
+      "wrong": true,
+      "attempts": [
+        {
+          "correct": true,
+          "time": "2026-11-11T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-14T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-11-21T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2026-12-05T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-01-04T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-03-05T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2027-07-03T15:30:00.000Z"
+        },
+        {
+          "correct": true,
+          "time": "2028-02-28T15:30:00.000Z"
+        }
+      ],
+      "review": {
+        "version": 1,
+        "algorithm": "hlr-local-v1",
+        "stage": "review",
+        "weights": [
+          1.1734975898774778,
+          2.0480196912804485,
+          -1.2
+        ],
+        "priorRight": 0,
+        "priorWrong": 0,
+        "priorUnknown": 0,
+        "right": 8,
+        "wrong": 0,
+        "unknown": 0,
+        "uncertain": 0,
+        "streak": 8,
+        "reps": 8,
+        "lapses": 0,
+        "trained": 7,
+        "lastReviewAt": "2028-02-28T15:30:00.000Z",
+        "dueAt": "2029-02-27T15:30:00.000Z",
+        "lastOutcome": "right",
+        "intervalDays": 365,
+        "halfLifeDays": 125.03360067000636
+      }
+    },
+    "outcome": "right",
+    "now": "2029-02-27T15:30:00.000Z",
+    "state": {
+      "version": 1,
+      "algorithm": "hlr-local-v1",
+      "stage": "review",
+      "weights": [
+        1.1961301136130058,
+        2.1121350434115422,
+        -1.2
+      ],
+      "priorRight": 0,
+      "priorWrong": 0,
+      "priorUnknown": 0,
+      "right": 9,
+      "wrong": 0,
+      "unknown": 0,
+      "uncertain": 0,
+      "streak": 9,
+      "reps": 9,
+      "lapses": 0,
+      "trained": 8,
+      "lastReviewAt": "2029-02-27T15:30:00.000Z",
+      "dueAt": "2030-02-27T15:30:00.000Z",
+      "lastOutcome": "right",
+      "intervalDays": 365,
+      "halfLifeDays": 185.14801138521702
+    },
+    "qualified": true,
+    "due": true,
+    "next": "2029-02-27T15:30:00.000Z"
+  }
+]

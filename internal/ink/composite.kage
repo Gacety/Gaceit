@@ -1,0 +1,12 @@
+package main
+var Color vec4
+var Ratio float
+var HasErasure int
+func Fragment(dst vec4,pos vec2) vec4 {
+ a:=Color.a*image0At(pos*Ratio).r
+ if HasErasure==1 {a*=1-image1At(pos*Ratio).r}
+ b:=backdropAt(pos)
+ // Multiply a straight color once over a possibly transparent backdrop.
+ rgb:=Color.rgb*(b.rgb+vec3(1-b.a))*a
+ return vec4(rgb,a)
+}

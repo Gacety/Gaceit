@@ -1,0 +1,117 @@
+package main
+
+import (
+	"crypto/rand"
+	"embed"
+	"encoding/hex"
+	"encoding/json"
+	"flag"
+	"fmt"
+	"io/fs"
+	"log"
+	"net"
+	"net/http"
+	"os"
+	"path/filepath"
+	"time"
+
+	"github.com/egoist/mygo"
+	"study408/internal/store"
+)
+
+//go:embed all:prototype/dist/client
+var assets embed.FS
+
+func main() {
+	preview := flag.Bool("preview", false, "serve the desktop frontend without a native window")
+	dataDir := flag.String("data-dir", "", "override the learning data directory")
+	address := flag.String("listen", "127.0.0.1:0", "loopback address (preview only)")
+	flag.Parse()
+	if *dataDir == "" {
+		dir, err := os.UserConfigDir()
+		if err != nil {
+			log.Fatal(err)
+		}
+		*dataDir = filepath.Join(dir, "408研习")
+	}
+	disk := &store.Store{Path: filepath.Join(*dataDir, "progress.json")}
+	// Refuse to overwrite an unreadable or corrupt existing file.
+	if _, err := disk.Load(); err != nil {
+		log.Fatalf("读取学习记录失败，原文件未修改: %v", err)
+	}
+	tokenBytes := make([]byte, 32)
+	if _, err := rand.Read(tokenBytes); err != nil {
+		log.Fatal(err)
+	}
+	token := hex.EncodeToString(tokenBytes)
+	root, err := fs.Sub(assets, "prototype/dist/client")
+	if err != nil {
+		log.Fatal(err)
+	}
+	mux := http.NewServeMux()
+	mux.HandleFunc("/api/state", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", "no-store")
+		if r.Header.Get("X-408-Token") != token {
+			http.Error(w, "unauthorized", 403)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		switch r.Method {
+		case http.MethodGet:
+			state, err := disk.Load()
+			if err != nil {
+				http.Error(w, "读取失败", 500)
+				return
+			}
+			json.NewEncoder(w).Encode(state)
+		case http.MethodPut:
+			var snapshot store.Snapshot
+			decoder := json.NewDecoder(http.MaxBytesReader(w, r.Body, 64<<20))
+			if err := decoder.Decode(&snapshot); err != nil || snapshot == nil {
+				http.Error(w, "无效的学习记录", 400)
+				return
+			}
+			if err := store.Validate(snapshot); err != nil {
+				http.Error(w, err.Error(), 400)
+				return
+			}
+			if err := disk.Save(snapshot); err != nil {
+				http.Error(w, "保存失败", 500)
+				return
+			}
+			w.WriteHeader(http.StatusNoContent)
+		default:
+			w.WriteHeader(http.StatusMethodNotAllowed)
+		}
+	})
+	mux.Handle("/", http.FileServer(http.FS(root)))
+	// Always bind to loopback, never expose personal notes on the LAN.
+	if !*preview {
+		*address = "127.0.0.1:0"
+	}
+	listener, err := net.Listen("tcp4", *address)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if ip := net.ParseIP(listener.Addr().(*net.TCPAddr).IP.String()); !ip.IsLoopback() {
+		log.Fatal("only loopback addresses are supported")
+	}
+	server := &http.Server{Handler: mux, ReadHeaderTimeout: 5 * time.Second}
+	go func() {
+		if err := server.Serve(listener); err != nil && err != http.ErrServerClosed {
+			log.Print(err)
+		}
+	}()
+	defer server.Close()
+	url := fmt.Sprintf("http://%s/?desktop=%s", listener.Addr(), token)
+	if *preview {
+		fmt.Println(url)
+		select {}
+	}
+	mygo.App.WhenReady(func() {
+		mygo.NewWindow(mygo.WindowOptions{Title: "408 研习", URL: url, Width: 1440, Height: 960, MinWidth: 1060, MinHeight: 720})
+	})
+	if err := mygo.App.Run(); err != nil {
+		log.Fatal(err)
+	}
+}

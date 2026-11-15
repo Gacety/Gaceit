@@ -1,0 +1,5 @@
+package main
+var Ratio float
+func Fragment(dst vec4,pos vec2) vec4 {
+ return image0At(pos*Ratio)*(1-image1At(pos*Ratio).r)
+}

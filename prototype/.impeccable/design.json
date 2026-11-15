@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T18:26:52.192833+00:00",
+  "title": "Design System: 408 研习",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Brown ink",
+        "tonalRamp": [
+          "oklch(15% 0.02250 72.51)",
+          "oklch(27% 0.02250 72.51)",
+          "oklch(38% 0.02250 72.51)",
+          "oklch(50% 0.02250 72.51)",
+          "oklch(61% 0.02250 72.51)",
+          "oklch(73% 0.02250 72.51)",
+          "oklch(84% 0.02250 72.51)",
+          "oklch(95% 0.02250 72.51)"
+        ]
+      },
+      "green": {
+        "role": "primary",
+        "displayName": "Deep olive",
+        "tonalRamp": [
+          "oklch(15% 0.06989 133.34)",
+          "oklch(27% 0.06989 133.34)",
+          "oklch(38% 0.06989 133.34)",
+          "oklch(50% 0.06989 133.34)",
+          "oklch(61% 0.06989 133.34)",
+          "oklch(73% 0.06989 133.34)",
+          "oklch(84% 0.06989 133.34)",
+          "oklch(95% 0.06989 133.34)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted brown",
+        "tonalRamp": [
+          "oklch(15% 0.02531 80.58)",
+          "oklch(27% 0.02531 80.58)",
+          "oklch(38% 0.02531 80.58)",
+          "oklch(50% 0.02531 80.58)",
+          "oklch(61% 0.02531 80.58)",
+          "oklch(73% 0.02531 80.58)",
+          "oklch(84% 0.02531 80.58)",
+          "oklch(95% 0.02531 80.58)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Warm rule",
+        "tonalRamp": [
+          "oklch(15% 0.02558 75.24)",
+          "oklch(27% 0.02558 75.24)",
+          "oklch(38% 0.02558 75.24)",
+          "oklch(50% 0.02558 75.24)",
+          "oklch(61% 0.02558 75.24)",
+          "oklch(73% 0.02558 75.24)",
+          "oklch(84% 0.02558 75.24)",
+          "oklch(95% 0.02558 75.24)"
+        ]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Olive action",
+        "tonalRamp": [
+          "oklch(15% 0.08092 131.90)",
+          "oklch(27% 0.08092 131.90)",
+          "oklch(38% 0.08092 131.90)",
+          "oklch(50% 0.08092 131.90)",
+          "oklch(61% 0.08092 131.90)",
+          "oklch(73% 0.08092 131.90)",
+          "oklch(84% 0.08092 131.90)",
+          "oklch(95% 0.08092 131.90)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Deepened olive action",
+        "tonalRamp": [
+          "oklch(15% 0.08417 133.21)",
+          "oklch(27% 0.08417 133.21)",
+          "oklch(38% 0.08417 133.21)",
+          "oklch(50% 0.08417 133.21)",
+          "oklch(61% 0.08417 133.21)",
+          "oklch(73% 0.08417 133.21)",
+          "oklch(84% 0.08417 133.21)",
+          "oklch(95% 0.08417 133.21)"
+        ]
+      },
+      "primary-text": {
+        "role": "neutral",
+        "displayName": "Warm light lettering",
+        "tonalRamp": [
+          "oklch(15% 0.02268 95.95)",
+          "oklch(27% 0.02268 95.95)",
+          "oklch(38% 0.02268 95.95)",
+          "oklch(50% 0.02268 95.95)",
+          "oklch(61% 0.02268 95.95)",
+          "oklch(73% 0.02268 95.95)",
+          "oklch(84% 0.02268 95.95)",
+          "oklch(95% 0.02268 95.95)"
+        ]
+      },
+      "glass": {
+        "role": "neutral",
+        "displayName": "Ivory glass",
+        "tonalRamp": [
+          "oklch(15% 0.01459 98.28)",
+          "oklch(27% 0.01459 98.28)",
+          "oklch(38% 0.01459 98.28)",
+          "oklch(50% 0.01459 98.28)",
+          "oklch(61% 0.01459 98.28)",
+          "oklch(73% 0.01459 98.28)",
+          "oklch(84% 0.01459 98.28)",
+          "oklch(95% 0.01459 98.28)"
+        ]
+      },
+      "workbook": {
+        "role": "neutral",
+        "displayName": "Ivory paper",
+        "tonalRamp": [
+          "oklch(15% 0.00855 84.57)",
+          "oklch(27% 0.00855 84.57)",
+          "oklch(38% 0.00855 84.57)",
+          "oklch(50% 0.00855 84.57)",
+          "oklch(61% 0.00855 84.57)",
+          "oklch(73% 0.00855 84.57)",
+          "oklch(84% 0.00855 84.57)",
+          "oklch(95% 0.00855 84.57)"
+        ]
+      },
+      "selected": {
+        "role": "secondary",
+        "displayName": "Sage selection",
+        "tonalRamp": [
+          "oklch(15% 0.02299 117.61)",
+          "oklch(27% 0.02299 117.61)",
+          "oklch(38% 0.02299 117.61)",
+          "oklch(50% 0.02299 117.61)",
+          "oklch(61% 0.02299 117.61)",
+          "oklch(73% 0.02299 117.61)",
+          "oklch(84% 0.02299 117.61)",
+          "oklch(95% 0.02299 117.61)"
+        ]
+      },
+      "demo-background": {
+        "role": "secondary",
+        "displayName": "Apricot label",
+        "tonalRamp": [
+          "oklch(15% 0.03962 67.31)",
+          "oklch(27% 0.03962 67.31)",
+          "oklch(38% 0.03962 67.31)",
+          "oklch(50% 0.03962 67.31)",
+          "oklch(61% 0.03962 67.31)",
+          "oklch(73% 0.03962 67.31)",
+          "oklch(84% 0.03962 67.31)",
+          "oklch(95% 0.03962 67.31)"
+        ]
+      },
+      "demo-text": {
+        "role": "secondary",
+        "displayName": "Apricot label ink",
+        "tonalRamp": [
+          "oklch(15% 0.11096 47.36)",
+          "oklch(27% 0.11096 47.36)",
+          "oklch(38% 0.11096 47.36)",
+          "oklch(50% 0.11096 47.36)",
+          "oklch(61% 0.11096 47.36)",
+          "oklch(73% 0.11096 47.36)",
+          "oklch(84% 0.11096 47.36)",
+          "oklch(95% 0.11096 47.36)"
+        ]
+      }
+    },
+    "shadows": [
+      {
+        "name": "glass",
+        "value": "inset 0 2px 3px #ffffffec,inset 0 -2px 5px #fff9,0 8px 24px -16px #6e532b80",
+        "purpose": "Inset highlights and ambient warmth on glass framing."
+      },
+      {
+        "name": "workbook",
+        "value": "0 14px 35px -20px #7f624b75",
+        "purpose": "Quiet lift behind the ivory workbook."
+      },
+      {
+        "name": "primary",
+        "value": "inset 0 2px 5px #fffffe60,inset 0 -2px 5px #b1c08480,0 4px 11px #4e623535",
+        "purpose": "Primary olive button sheen."
+      }
+    ],
+    "motion": [
+      {
+        "name": "navigation-primary",
+        "value": "background .2s,box-shadow .2s",
+        "purpose": "Navigation and primary-action hover transitions."
+      },
+      {
+        "name": "answer",
+        "value": "background .16s,border-color .16s,box-shadow .16s",
+        "purpose": "Answer hover and selection feedback."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition:none!important;scroll-behavior:auto!important",
+        "purpose": "Applied under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1550px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "tool-tabs",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Standard olive action; submit uses a larger variant.",
+      "html": "<button class=\"ds-primary\">开始练习</button>",
+      "css": ".ds-primary{font-family:'Noto Serif SC',serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;background:#526d3b;color:#fffbea;border:1px solid #ffffffe0;box-shadow:inset 0 2px 5px #fffffe60,inset 0 -2px 5px #b1c08480,0 4px 11px #4e623535;min-height:48px;padding:10px 30px;border-radius:28px;font-size:18px;transition:background .2s,box-shadow .2s}.ds-primary:hover{background:#425f2c;box-shadow:inset 0 2px 5px #fffffe70,0 6px 16px #4e62354d}.ds-primary:focus-visible{outline:3px solid #6f8952;outline-offset:4px}.ds-primary:disabled{cursor:default;opacity:.35}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Page action",
+      "kind": "button",
+      "refersTo": "button-page",
+      "description": "Quiet question paging action.",
+      "html": "<button class=\"ds-page\"><svg width=\"23\" height=\"23\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg>下一题</button>",
+      "css": ".ds-page{font-family:'Noto Serif SC',serif;display:flex;align-items:center;gap:14px;background:none;border:0;color:var(--green,#425a31);font-size:20px;padding:10px 4px;cursor:pointer}.ds-page:hover:not(:disabled){color:#1e3913}.ds-page:focus-visible{outline:3px solid #6f8952;outline-offset:4px}.ds-page:disabled{opacity:.35;cursor:default}"
+    },
+    {
+      "name": "Glass navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Horizontal links in a highlighted glass capsule.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"学习导航\"><button class=\"ds-link ds-selected\" aria-current=\"page\">章节练习</button><button class=\"ds-link\">错题重做</button><button class=\"ds-link\">我的笔记</button></nav>",
+      "css": ".ds-nav{background:rgba(255,253,242,.35);border:1px solid #ffffffe6;box-shadow:inset 0 2px 3px #ffffffec,inset 0 -2px 5px #fff9,0 8px 24px -16px #6e532b80;backdrop-filter:blur(24px) saturate(130%);display:flex;align-items:center;gap:26px;padding:0 28px;min-height:76px;border-radius:42px;flex-wrap:wrap}.ds-link{font-family:'Noto Serif SC',serif;font-size:20px;padding:12px 26px;border:0;background:none;color:var(--ink,#3e352a);border-radius:28px;cursor:pointer;transition:background .2s,box-shadow .2s}.ds-selected{background:#f1f2dc80;box-shadow:inset 0 2px 3px #ffffffe6,inset 0 -1px 3px #fff,0 4px 9px #676d3e26;color:var(--green,#425a31)}.ds-link:hover{background:#fffffe70}.ds-link:focus-visible{outline:3px solid #6f8952;outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-link{transition:none}}"
+    },
+    {
+      "name": "Demo tag",
+      "kind": "chip",
+      "refersTo": "demo-tag",
+      "description": "Static label identifying authored demo content.",
+      "html": "<span class=\"ds-demo\">演示题</span>",
+      "css": ".ds-demo{font-family:'Noto Serif SC',serif;display:inline-block;font-size:17px;line-height:1.5;background:#fbe4cd;color:#9a5129;padding:5px 15px;border-radius:14px;white-space:nowrap}"
+    },
+    {
+      "name": "Ivory workbook",
+      "kind": "card",
+      "refersTo": "workbook",
+      "description": "Near-opaque reading container.",
+      "html": "<section class=\"ds-workbook\"><h2 class=\"ds-heading\">本题笔记</h2><p class=\"ds-copy\">随题保存，下次回来接着想。</p></section>",
+      "css": ".ds-workbook{font-family:'Noto Serif SC',serif;background:rgba(253,250,244,.94);border:1px solid #fff;border-radius:28px;box-shadow:0 14px 35px -20px #7f624b75;padding:22px 28px 0;color:var(--ink,#3e352a)}.ds-heading{font-size:24px;line-height:1.5;font-weight:600;color:var(--green,#425a31);margin:0}.ds-copy{font-size:18px;line-height:1.9;margin:14px 0 22px}"
+    },
+    {
+      "name": "Answer choice",
+      "kind": "button",
+      "refersTo": "answer",
+      "description": "Outlined selectable answer; selected styling is shown.",
+      "html": "<button class=\"ds-answer\" role=\"radio\" aria-checked=\"true\"><span class=\"ds-letter\">A.</span><span>顺序存储</span></button>",
+      "css": ".ds-answer{font-family:'Noto Serif SC',serif;display:flex;align-items:center;gap:15px;padding:12px 22px;min-height:60px;text-align:left;font-size:22px;border:1px solid #6c854e;border-radius:13px;background:#e6ead9;color:var(--ink,#3e352a);box-shadow:0 0 0 1px #6c854e40;cursor:pointer;transition:background .16s,border-color .16s,box-shadow .16s}.ds-letter{font-size:23px}.ds-answer:hover:not(:disabled){background:#f4f1e3;border-color:#8c9a70}.ds-answer:focus-visible{outline:3px solid #6f8952;outline-offset:4px}.ds-answer:disabled{opacity:1;cursor:default}@media(prefers-reduced-motion:reduce){.ds-answer{transition:none}}"
+    },
+    {
+      "name": "Ruled note field",
+      "kind": "input",
+      "refersTo": "note-field",
+      "description": "Borderless writing field on repeating rules.",
+      "html": "<textarea class=\"ds-note\" aria-label=\"本题笔记\" placeholder=\"记下这题的思路…\"></textarea>",
+      "css": ".ds-note{display:block;width:100%;min-height:240px;resize:none;border:0;border-radius:0;background:transparent;color:var(--ink,#3e352a);font:18px/56px \"Noto Serif SC\",serif;padding:0 0 10px;caret-color:#56753e;background-image:linear-gradient(transparent 55px,#d7cbbb80 55px,#d7cbbb80 56px);background-size:100% 56px}.ds-note::placeholder{color:#827762;font-size:16px}.ds-note:focus-visible{outline:3px solid #6f8952;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Warm liquid-glass workbook",
+    "overview": "Warm liquid glass frames a quiet ivory workbook. The selected apricot and sage optical backdrop supplies atmosphere; near-opaque reading surfaces keep Chinese questions, scratch work, and notes legible. This records the shipped implementation, following the selected source rather than proposing a new visual direction.",
+    "keyCharacteristics": [
+      "Apricot and sage optical backdrop with restrained glass framing.",
+      "Chinese serif reading hierarchy and olive actions.",
+      "A single workbook with question above, scratchpaper left, and notes right."
+    ],
+    "rules": [
+      {
+        "name": "The Paper Rule",
+        "body": "Keep the workbook near-opaque; reserve optical transparency for framing and controls.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do preserve the selected warm backdrop and near-opaque ivory reading surface.",
+      "Do keep Chinese question and note typography in Noto Serif SC.",
+      "Do retain the horizontal navigation and narrow-screen tool tabs.",
+      "Do label authored demo questions and lightweight scratchpaper accurately."
+    ],
+    "donts": [
+      "Don't turn the workbook itself into a highly transparent glass panel.",
+      "Don't replace the selected warm liquid-glass direction with the older pixel concepts.",
+      "Don't expand the scratchpaper demo into a full notebook or handwriting-recognition product without a new request."
+    ]
+  }
+}
