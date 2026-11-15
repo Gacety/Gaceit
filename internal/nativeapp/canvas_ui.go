@@ -11,19 +11,29 @@ import (
 func (a *App) canvasSurface() ui.Color { return a.exactColor("#232632", "#f4f3ed") }
 func (a *App) canvasBorder() ui.Color  { return a.exactColor("#363A48", "#d7d8cd") }
 func (a *App) canvasFloat(c *ui.Context) ui.Element {
+	if isWebPlatform() {
+		return ui.Row(c).Absolute().Background(a.canvasSurface()).Border(1, a.canvasBorder()).Radius(14).Gap(4).Padding(5, 6).AlignItems(ui.Center).ZIndex(5).Shadow(0, 8, 24, 0, a.canvasShadow(.35))
+	}
 	return ui.Row(c).Absolute().Background(a.canvasSurface()).Border(1, a.canvasBorder()).Radius(16).Gap(8).Padding(8).AlignItems(ui.Center).ZIndex(5).Shadow(0, 8, 24, 0, a.canvasShadow(.35))
 }
 func (a *App) canvasButton(c *ui.Context, label string) ui.Element {
+	if isWebPlatform() {
+		return a.exactButton(c, label).Height(36).Padding(0, 12).Radius(10).FontSize(13).TextColor(c.Theme().Text)
+	}
 	return a.exactButton(c, label).Height(44).Padding(0, 16).Radius(12).FontSize(15).TextColor(c.Theme().Text)
 }
 func (a *App) canvasIcon(c *ui.Context, label string, selected bool) ui.Element {
-	b := ui.ButtonBase(c.Key(label)).Label(label).Tooltip(label).Size(44, 44).Radius(12).AlignItems(ui.Center).Justify(ui.Center).TextColor(c.Theme().TextMuted)
+	size, radius, iconSize := float32(44), float32(12), float32(22)
+	if isWebPlatform() {
+		size, radius, iconSize = 36, 10, 19
+	}
+	b := ui.ButtonBase(c.Key(label)).Label(label).Tooltip(label).Size(size, size).Radius(radius).AlignItems(ui.Center).Justify(ui.Center).TextColor(c.Theme().TextMuted)
 	if selected {
 		b.Background(a.exactColor("#2A2545", "#e4e9df")).TextColor(a.exactColor("#E4DAFF", "#465b48"))
 	}
 	b.Children(func() {
 		if icon := canvasIcons[label]; icon != nil {
-			ui.Icon(c, icon).Size(22, 22)
+			ui.Icon(c, icon).Size(iconSize, iconSize)
 		}
 	})
 	return b
@@ -120,7 +130,19 @@ func (a *App) canvasPage(c *ui.Context) {
 			a.canvasScale = 0
 			a.inCanvasQuestion = false
 		})
-		a.canvasFloat(c).Left(24).Top(24).Padding(6).Children(func() {
+		edge, top, bottom := float32(24), float32(24), float32(28)
+		cornerPadV, cornerPadH := float32(6), float32(6)
+		badgeH, badgePad, badgeFont := float32(32), float32(10), float32(13)
+		zoomBtnW, zoomPctW, zoomDivH, zoomDivM := float32(44), float32(44), float32(24), float32(6)
+		submitPad := float32(24)
+		if isWebPlatform() {
+			edge, top, bottom = 16, 16, 18
+			cornerPadV, cornerPadH = 4, 6
+			badgeH, badgePad, badgeFont = 28, 8, 12
+			zoomBtnW, zoomPctW, zoomDivH, zoomDivM = 36, 42, 20, 3
+			submitPad = 16
+		}
+		a.canvasFloat(c).Left(edge).Top(top).Padding(cornerPadV, cornerPadH).Children(func() {
 			if a.canvasButton(c, "退出草稿").Clicked() {
 				a.closeCanvas()
 				if !a.inkDirty {
@@ -128,11 +150,20 @@ func (a *App) canvasPage(c *ui.Context) {
 				}
 			}
 			label := fmt.Sprintf("%d / %d", slices.Index(a.queue, a.M.Round.CurrentID)+1, len(a.queue))
-			if a.exactButton(c, label).Label("打开进度面板").Height(32).Padding(0, 10).Radius(8).FontSize(13).Background(c.Theme().Background).Tooltip("查看本次练习进度").Clicked() {
+			if a.exactButton(c, label).Label("打开进度面板").Height(badgeH).Padding(0, badgePad).Radius(8).FontSize(badgeFont).Background(c.Theme().Background).Tooltip("查看本次练习进度").Clicked() {
 				a.canvasProgress = !a.canvasProgress
 			}
 		})
-		a.canvasFloat(c).Right(24).Top(24).Padding(6).Children(func() {
+		a.canvasFloat(c).Right(edge).Top(top).Padding(cornerPadV, cornerPadH).Children(func() {
+			if isWebPlatform() {
+				fsLabel := "全屏"
+				if a.isFullscreen() {
+					fsLabel = "退出全屏"
+				}
+				if a.canvasButton(c, fsLabel).Tooltip("切换全屏显示").Clicked() {
+					a.toggleFullscreen()
+				}
+			}
 			b := a.canvasButton(c, "本题笔记").Tooltip("打开或收起本题笔记卡")
 			if a.canvasNotes {
 				b.Background(a.exactColor("#2A2545", "#e4e9df")).TextColor(a.exactColor("#E4DAFF", "#465b48"))
@@ -142,27 +173,27 @@ func (a *App) canvasPage(c *ui.Context) {
 				a.canvasSettings = false
 			}
 		})
-		a.canvasFloat(c).Left(24).Bottom(28).Gap(4).Children(func() {
+		a.canvasFloat(c).Left(edge).Bottom(bottom).Gap(4).Children(func() {
 			if a.canvasButton(c, "回到题目").Background(a.exactColor("#2A2545", "#e4e9df")).TextColor(a.exactColor("#E4DAFF", "#465b48")).Clicked() {
 				ed.Home()
 				a.inkChanged()
 			}
-			ui.Box(c).Width(1).Height(24).Background(a.canvasBorder()).Margin(0, 6)
-			if a.canvasButton(c, "−").Label("缩小画布").Disabled(ed.Zoom() <= canvasMinimumZoom).Width(44).Padding(0).FontSize(20).Clicked() {
+			ui.Box(c).Width(1).Height(zoomDivH).Background(a.canvasBorder()).Margin(0, zoomDivM)
+			if a.canvasButton(c, "−").Label("缩小画布").Disabled(ed.Zoom() <= canvasMinimumZoom).Width(zoomBtnW).Padding(0).FontSize(18).Clicked() {
 				ed.ZoomBy(1 / 1.1)
 				a.inkChanged()
 			}
-			if a.exactButton(c, fmt.Sprintf("%.0f%%", ed.Zoom()*100)).Label("恢复100%缩放").Padding(0).Width(44).FontWeight(400).Clicked() {
+			if a.exactButton(c, fmt.Sprintf("%.0f%%", ed.Zoom()*100)).Label("恢复100%缩放").Height(32).FontSize(13).Padding(0).Width(zoomPctW).FontWeight(400).Clicked() {
 				ed.ZoomBy(1 / ed.Zoom())
 				a.inkChanged()
 			}
-			if a.canvasButton(c, "+").Label("放大画布").Disabled(ed.Zoom() >= canvasMaximumZoom).Width(44).Padding(0).FontSize(20).Clicked() {
+			if a.canvasButton(c, "+").Label("放大画布").Disabled(ed.Zoom() >= canvasMaximumZoom).Width(zoomBtnW).Padding(0).FontSize(18).Clicked() {
 				ed.ZoomBy(1.1)
 				a.inkChanged()
 			}
 		})
 		a.canvasTools(c, w)
-		a.canvasFloat(c).Right(24).Bottom(28).Children(func() {
+		a.canvasFloat(c).Right(edge).Bottom(bottom).Children(func() {
 			i := slices.Index(a.queue, a.M.Round.CurrentID)
 			if a.canvasButton(c, "上一题").Border(1, a.canvasBorder()).AccessDisabled(i <= 0).Clicked() {
 				a.navigate(-1)
@@ -179,7 +210,7 @@ func (a *App) canvasPage(c *ui.Context) {
 			} else if a.answered {
 				label = "继续下一题"
 			}
-			if a.canvasButton(c, label).Padding(0, 24).Background(c.Theme().Accent).TextColor(c.Theme().AccentText).FontWeight(700).Disabled(len(a.queue) == 0 || (!a.answered && a.aiGrading)).Clicked() {
+			if a.canvasButton(c, label).Padding(0, submitPad).Background(c.Theme().Accent).TextColor(c.Theme().AccentText).FontWeight(700).Disabled(len(a.queue) == 0 || (!a.answered && a.aiGrading)).Clicked() {
 				if a.answered {
 					a.navigate(1)
 				} else {
@@ -188,11 +219,16 @@ func (a *App) canvasPage(c *ui.Context) {
 			}
 		})
 		if ed.Tool() == "lasso" {
-			bottom := float32(100)
-			if w < 1300 {
-				bottom = 176
+			lassoBottom := float32(100)
+			if isWebPlatform() {
+				lassoBottom = 72
+				if w < 900 {
+					lassoBottom = 128
+				}
+			} else if w < 1300 {
+				lassoBottom = 176
 			}
-			a.canvasFloat(c).Left(24).Bottom(bottom).ZIndex(6).Children(func() {
+			a.canvasFloat(c).Left(edge).Bottom(lassoBottom).ZIndex(6).Children(func() {
 				if a.exactButton(c, "复制").Tooltip("复制笔迹 ⌘C").Disabled(!ed.HasSelection()).Clicked() {
 					a.copyInk(c.Services())
 				}
@@ -211,7 +247,7 @@ func (a *App) canvasPage(c *ui.Context) {
 			a.canvasToolSettings(c, w, h)
 		}
 		if a.canvasProgress {
-			a.canvasProgressPanel(c, h)
+			a.canvasProgressPanel(c, w, h)
 		}
 		if a.canvasNotes {
 			a.canvasNoteCard(c, w, h)
@@ -224,9 +260,17 @@ func (a *App) canvasPage(c *ui.Context) {
 func (a *App) canvasTools(c *ui.Context, w float32) {
 	ed := a.inkEditor
 	// Extra demo tools live under Settings to preserve the reference toolbar size.
-	width := float32(474)
-	bottom := float32(28)
-	if w < 1300 {
+	width, bottom := float32(474), float32(28)
+	divH, divM := float32(24), float32(6)
+	swatchSize, swatchRadius := float32(26), float32(13)
+	if isWebPlatform() {
+		width, bottom = 384, 18
+		divH, divM = 20, 2
+		swatchSize, swatchRadius = 20, 10
+		if w < 900 {
+			bottom = 72
+		}
+	} else if w < 1300 {
 		bottom = 98
 	}
 	a.canvasFloat(c).Left((w - width) / 2).Bottom(bottom).Width(width).Gap(4).Children(func() {
@@ -235,7 +279,7 @@ func (a *App) canvasTools(c *ui.Context, w float32) {
 				ed.SetTool(t.key)
 			}
 		}
-		ui.Box(c).Width(1).Height(24).Background(a.canvasBorder()).Margin(0, 6)
+		ui.Box(c).Width(1).Height(divH).Background(a.canvasBorder()).Margin(0, divM)
 		for i := 0; i < 3; i++ {
 			color := a.exactColor("#ffffff", "#000000")
 			if i == 1 {
@@ -244,7 +288,7 @@ func (a *App) canvasTools(c *ui.Context, w float32) {
 			if i == 2 {
 				color = ui.Hex("#C4B5FD")
 			}
-			b := ui.ButtonBase(c.Key(fmt.Sprint("ink-color", i))).Label([]string{"自动墨色", "金黄色", "淡紫色"}[i]).Tooltip([]string{"随主题自动切换黑白", "金黄色", "淡紫色"}[i]).Size(26, 26).Radius(13).Background(color).Border(2, a.canvasBorder())
+			b := ui.ButtonBase(c.Key(fmt.Sprint("ink-color", i))).Label([]string{"自动墨色", "金黄色", "淡紫色"}[i]).Tooltip([]string{"随主题自动切换黑白", "金黄色", "淡紫色"}[i]).Size(swatchSize, swatchSize).Radius(swatchRadius).Background(color).Border(2, a.canvasBorder())
 			if ed.ColorIndex() == i {
 				b.Border(2, c.Theme().Accent)
 			}
@@ -252,7 +296,7 @@ func (a *App) canvasTools(c *ui.Context, w float32) {
 				ed.SetColor(i)
 			}
 		}
-		ui.Box(c).Width(1).Height(24).Background(a.canvasBorder()).Margin(0, 6)
+		ui.Box(c).Width(1).Height(divH).Background(a.canvasBorder()).Margin(0, divM)
 		if a.canvasIcon(c, "撤销", false).Disabled(!ed.CanUndo()).Clicked() {
 			ed.Undo()
 			a.inkChanged()
@@ -268,7 +312,15 @@ func (a *App) canvasTools(c *ui.Context, w float32) {
 }
 func (a *App) canvasToolSettings(c *ui.Context, w, h float32) {
 	ed := a.inkEditor
-	ui.Column(c).Absolute().Left(w/2-190).Bottom(102).Width(380).Padding(18).Gap(14).Radius(18).Background(a.canvasSurface()).Border(1, a.canvasBorder()).ZIndex(9).Children(func() {
+	panelW, bottom := float32(380), float32(102)
+	if isWebPlatform() {
+		panelW = min(float32(380), w-32)
+		bottom = 72
+		if w < 900 {
+			bottom = 128
+		}
+	}
+	ui.Column(c).Absolute().Left(max(16, (w-panelW)/2)).Bottom(bottom).Width(panelW).Padding(18).Gap(14).Radius(18).Background(a.canvasSurface()).Border(1, a.canvasBorder()).ZIndex(9).Children(func() {
 		ui.Row(c).Gap(8).Children(func() {
 			for _, v := range []struct{ key, label string }{{"pen", "钢笔"}, {"ball", "圆珠笔"}, {"pencil", "铅笔"}, {"hand", "移动画布"}} {
 				selected := ed.Tool() == v.key
@@ -336,7 +388,11 @@ func (a *App) canvasToolSettings(c *ui.Context, w, h float32) {
 }
 func (a *App) canvasNoteCard(c *ui.Context, w, h float32) {
 	r := a.M.Records[a.M.Round.CurrentID]
-	ui.Column(c).Absolute().Right(24).Top(92).Width(332).MaxHeight(h-232).Padding(18).Gap(14).Radius(18).Background(a.canvasSurface()).Border(1, a.canvasBorder()).ZIndex(8).Shadow(0, 12, 36, 0, a.canvasShadow(.4)).Label("本题笔记卡").Children(func() {
+	edge, top, cardW, maxH := float32(24), float32(92), float32(332), h-232
+	if isWebPlatform() {
+		edge, top, cardW, maxH = 16, 72, min(float32(316), w-32), max(float32(220), h-160)
+	}
+	ui.Column(c).Absolute().Right(edge).Top(top).Width(cardW).MaxHeight(maxH).Padding(18).Gap(14).Radius(18).Background(a.canvasSurface()).Border(1, a.canvasBorder()).ZIndex(8).Shadow(0, 12, 36, 0, a.canvasShadow(.4)).Label("本题笔记卡").Children(func() {
 		ui.Row(c).AlignItems(ui.Center).Children(func() {
 			ui.Text(c, "本题笔记").FontSize(15).FontWeight(700).Grow(1)
 			status := "已保存"
@@ -369,7 +425,7 @@ func (a *App) canvasNoteCard(c *ui.Context, w, h float32) {
 			a.noteEditor(c, "canvas-note-"+a.M.Round.CurrentID, a.M.Round.CurrentID, "本题笔记内容").Height(140).FontSize(15).Padding(0).Border(0, ui.Transparent).Background(ui.Transparent).Placeholder("错因：\n\n下次：")
 		}
 		if len(r.InkClips) > 0 {
-			ui.Scroll(c.Key("note-clips")).Height(min(float32(150), h-550)).Gap(8).Children(func() {
+			ui.Scroll(c.Key("note-clips")).Height(max(float32(60), min(float32(150), h-550))).Gap(8).Children(func() {
 				for _, clip := range r.InkClips {
 					a.inkClipView(c, clip, 90)
 				}
@@ -412,7 +468,7 @@ func (a *App) inkClipView(c *ui.Context, clip InkClip, height float32) {
 		ui.Text(c, "来自草稿").FontSize(12).TextColor(c.Theme().TextMuted)
 	})
 }
-func (a *App) canvasProgressPanel(c *ui.Context, h float32) {
+func (a *App) canvasProgressPanel(c *ui.Context, w, h float32) {
 	done, right := 0, 0
 	for _, id := range a.queue {
 		state, _ := a.cardState(id)
@@ -430,7 +486,11 @@ func (a *App) canvasProgressPanel(c *ui.Context, h float32) {
 			ui.Box(c).Height(4).WidthPercent(float32(done) * 100 / float32(total)).Background(c.Theme().Accent)
 		}
 	})
-	ui.Column(c).Absolute().Left(24).Top(84).Width(380).MaxHeight(h-190).Padding(20).Gap(16).Radius(18).Border(1, a.canvasBorder()).Background(a.canvasSurface()).ZIndex(9).Shadow(0, 16, 40, 0, a.canvasShadow(.45)).Label("练习进度面板").Children(func() {
+	edge, top, panelW, maxH := float32(24), float32(84), float32(380), h-190
+	if isWebPlatform() {
+		edge, top, panelW, maxH = 16, 72, min(float32(360), w-32), max(float32(220), h-160)
+	}
+	ui.Column(c).Absolute().Left(edge).Top(top).Width(panelW).MaxHeight(maxH).Padding(20).Gap(16).Radius(18).Border(1, a.canvasBorder()).Background(a.canvasSurface()).ZIndex(9).Shadow(0, 16, 40, 0, a.canvasShadow(.45)).Label("练习进度面板").Children(func() {
 		ui.Row(c).Justify(ui.SpaceBetween).Children(func() {
 			ui.Text(c, "今日练习进度").FontSize(15).FontWeight(700)
 			ui.Textf(c, "已完成 %d · 剩余 %d", done, remaining).FontSize(13).TextColor(c.Theme().TextMuted)
@@ -463,7 +523,7 @@ func (a *App) canvasProgressPanel(c *ui.Context, h float32) {
 				ids = append(ids, id)
 			}
 		}
-		ui.Scroll(c.Key("progress-grid")).Height(min(float32(190), h-470)).Gap(6).Children(func() {
+		ui.Scroll(c.Key("progress-grid")).Height(max(float32(80), min(float32(190), h-470))).Gap(6).Children(func() {
 			startOffset := 0
 			limit := len(ids)
 			if !a.canvasAllCards {

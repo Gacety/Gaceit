@@ -140,3 +140,9 @@ func (a *App) exportQuestionReports() {
 }
 
 func sanitizeInitialQuestions([]Question) {}
+
+func isWebPlatform() bool { return false }
+
+func (a *App) isFullscreen() bool { return false }
+
+func (a *App) toggleFullscreen() {}

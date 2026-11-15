@@ -10,7 +10,11 @@ import (
 
 const webReportsStorageKey = "study408:question-reports"
 
-var registerWebReportHelper sync.Once
+var (
+	registerWebReportHelper sync.Once
+	registerWebFullscreen   sync.Once
+	fullscreenWebApp        *App
+)
 
 func triggerBrowserDownload(filename string, data []byte) {
 	doc := js.Global().Get("document")
@@ -174,4 +178,115 @@ func sanitizeInitialQuestions(questions []Question) {
 		questions[i].History.Result = ""
 		questions[i].History.InWrongBook = false
 	}
+}
+
+func isWebPlatform() bool { return true }
+
+func (a *App) ensureFullscreenListener() {
+	fullscreenWebApp = a
+	registerWebFullscreen.Do(func() {
+		doc := js.Global().Get("document")
+		if doc.IsUndefined() || doc.IsNull() {
+			return
+		}
+		onChange := js.FuncOf(func(js.Value, []js.Value) any {
+			if fullscreenWebApp != nil && fullscreenWebApp.Window != nil {
+				fullscreenWebApp.Window.Invalidate()
+			}
+			return nil
+		})
+		doc.Call("addEventListener", "fullscreenchange", onChange)
+		doc.Call("addEventListener", "webkitfullscreenchange", onChange)
+	})
+}
+
+func (a *App) isFullscreen() bool {
+	a.ensureFullscreenListener()
+	doc := js.Global().Get("document")
+	if doc.IsUndefined() || doc.IsNull() {
+		return false
+	}
+	for _, prop := range []string{"fullscreenElement", "webkitFullscreenElement"} {
+		v := doc.Get(prop)
+		if !v.IsUndefined() && !v.IsNull() {
+			return true
+		}
+	}
+	return false
+}
+
+func callFullscreenMethod(target js.Value, names ...string) (js.Value, bool) {
+	for _, name := range names {
+		if target.Get(name).Type() == js.TypeFunction {
+			var res js.Value
+			var failed bool
+			func() {
+				defer func() {
+					if recover() != nil {
+						failed = true
+					}
+				}()
+				res = target.Call(name)
+			}()
+			if !failed {
+				return res, true
+			}
+		}
+	}
+	return js.Undefined(), false
+}
+
+func (a *App) toggleFullscreen() {
+	a.ensureFullscreenListener()
+	doc := js.Global().Get("document")
+	if doc.IsUndefined() || doc.IsNull() {
+		return
+	}
+	attachResult := func(res js.Value) {
+		if res.IsUndefined() || res.IsNull() || res.Get("then").Type() != js.TypeFunction {
+			return
+		}
+		var onOK, onErr js.Func
+		release := func() {
+			onOK.Release()
+			onErr.Release()
+		}
+		onOK = js.FuncOf(func(js.Value, []js.Value) any {
+			release()
+			if a.Window != nil {
+				a.Window.Invalidate()
+			}
+			return nil
+		})
+		onErr = js.FuncOf(func(js.Value, []js.Value) any {
+			release()
+			a.message = "当前浏览器限制全屏，可通过浏览器“添加到主屏幕”获得全屏体验"
+			if a.Window != nil {
+				a.Window.Invalidate()
+			}
+			return nil
+		})
+		res.Call("then", onOK, onErr)
+	}
+	if a.isFullscreen() {
+		if res, ok := callFullscreenMethod(doc, "exitFullscreen", "webkitExitFullscreen"); ok {
+			attachResult(res)
+		}
+		return
+	}
+	el := doc.Get("documentElement")
+	if el.IsUndefined() || el.IsNull() {
+		el = doc.Call("getElementById", "mygo")
+	}
+	if el.IsUndefined() || el.IsNull() {
+		a.message = "当前浏览器不支持网页全屏，可通过“添加到主屏幕”全屏使用"
+		return
+	}
+	res, ok := callFullscreenMethod(el, "requestFullscreen", "webkitRequestFullscreen")
+	if !ok {
+		a.message = "当前浏览器不支持网页全屏，可通过浏览器“添加到主屏幕”全屏使用"
+		return
+	}
+	a.message = ""
+	attachResult(res)
 }

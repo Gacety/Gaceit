@@ -136,7 +136,7 @@ func (a *App) exactReviewSidebar(c *ui.Context) {
 		ui.Spacer(c)
 		ui.Column(c).Padding(0, 14).Gap(12).Children(func() {
 			ui.Text(c, a.bankSummaryText()).FontSize(12).LineHeight(1.6).FontWeight(400).TextColor(a.exactColor("#8D92A3", "#777b72"))
-			ui.Row(c).Gap(8).Children(func() {
+			ui.Row(c).Gap(8).Wrap().Children(func() {
 				theme := "浅色"
 				if a.M.Theme != "dark" {
 					theme = "深色"
@@ -154,6 +154,15 @@ func (a *App) exactReviewSidebar(c *ui.Context) {
 				}
 				if a.exactButton(c, "导入").FontSize(13).Padding(0, 10).Border(1, t.Border).Clicked() {
 					a.importBackup()
+				}
+				if isWebPlatform() {
+					label := "全屏"
+					if a.isFullscreen() {
+						label = "退出全屏"
+					}
+					if a.exactButton(c, label).FontSize(13).Padding(0, 10).Border(1, t.Border).Clicked() {
+						a.toggleFullscreen()
+					}
 				}
 			})
 		})

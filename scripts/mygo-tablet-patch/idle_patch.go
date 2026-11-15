@@ -299,6 +299,480 @@ func (e Element) PenInputOnly() Element {
    continue
   }
   if !rt.contains(h.st, h.r, x, y) {`},
+	{"vendor/github.com/egoist/mygo/internal/web/surface.go", `	// downX and downY place the last press, where a context menu opens.
+	downX, downY float64
+	clicks       platform.ClickCounter
+}`, `	// downX and downY place the last press, where a context menu opens.
+	downX, downY float64
+	clicks       platform.ClickCounter
+
+	penDown                                          bool
+	touches                                          map[int]touchPoint
+	touchPrimaryID                                   int
+	touchStartX, touchStartY, touchLastX, touchLastY float64
+	touchStartTime, touchMoveTime, touchVX, touchVY  float64
+	touchScrolling, touchPinching, touchPinched      bool
+	pinchID1, pinchID2                               int
+	pinchMidX, pinchMidY, pinchDist                  float64
+	momentumReq                                      js.Value
+	momentumFn                                       js.Func
+	momentumActive                                   bool
+	momentumLast                                     float64
+}
+
+type touchPoint struct {
+	x, y float64
+}`},
+	{"vendor/github.com/egoist/mygo/internal/web/surface.go", `	// The pointer is the primary one of its kind (isPrimary): the mouse,
+	// or the first finger or pen down. The others, as a second finger on
+	// a touchscreen, neither press nor move it, as on Windows and Linux,
+	// where a second finger presses nothing either: it would take the
+	// press of the first, and end it as it lifts.
+	s.on(c, "pointermove", true, func(e js.Value) {
+		if !primary(e) {
+			return
+		}
+		x, y := s.point(e)
+		pointer, pressure := device(e)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerMove, X: x, Y: y, Mods: s.mods(e), Pointer: pointer, Pressure: pressure})
+		// A button pressed or released while another is held comes as a
+		// move, which pointerdown and pointerup leave out; the desktop's
+		// windows hear each button.
+		if kind, b, ok := chord(e.Get("button").Int(), e.Get("buttons").Int()); ok {
+			ev := platform.SurfaceEvent{Kind: kind, X: x, Y: y, Button: b, Mods: s.mods(e), Pointer: pointer, Pressure: pressure}
+			if kind == platform.PointerDown {
+				s.downX, s.downY = x, y
+				ev.Clicks = s.clicks.Press(b, x, y, uint32(e.Get("timeStamp").Float()), platform.DefaultDoubleClick)
+			}
+			s.send(ev)
+		}
+	})
+	s.on(c, "pointerdown", false, func(e js.Value) {
+		e.Call("preventDefault")
+		if !primary(e) {
+			return
+		}
+		s.focus()
+		x, y := s.point(e)
+		button := e.Get("button").Int()
+		switch button {
+		case 3, 4:
+			k := platform.KeyBack
+			if button == 4 {
+				k = platform.KeyForward
+			}
+			s.send(platform.SurfaceEvent{Kind: platform.KeyPressed, Key: k, Mods: s.mods(e)})
+			s.send(platform.SurfaceEvent{Kind: platform.KeyReleased, Key: k, Mods: s.mods(e)})
+			return
+		}
+		c.Call("setPointerCapture", e.Get("pointerId"))
+		b := buttonOf(button)
+		s.downX, s.downY = x, y
+		clicks := s.clicks.Press(b, x, y, uint32(e.Get("timeStamp").Float()), platform.DefaultDoubleClick) // browsers tell no double-click settings
+		pointer, pressure := device(e)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerDown, X: x, Y: y, Button: b, Clicks: clicks, Mods: s.mods(e), Pointer: pointer, Pressure: pressure})
+	})
+	s.on(c, "pointerup", true, func(e js.Value) {
+		if !primary(e) {
+			return
+		}
+		button := e.Get("button").Int()
+		if button == 3 || button == 4 {
+			return
+		}
+		x, y := s.point(e)
+		pointer, _ := device(e)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerUp, X: x, Y: y, Button: buttonOf(button), Mods: s.mods(e), Pointer: pointer})
+	})
+	// The browser took the pointer, as a touch it scrolls or zooms the
+	// page with, or one the system took: its buttons go up with no
+	// release, and the press commits nothing.
+	s.on(c, "pointercancel", true, func(e js.Value) {
+		if !primary(e) {
+			return
+		}
+		x, y := s.point(e)
+		pointer, _ := device(e)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerCancel, X: x, Y: y, Mods: s.mods(e), Pointer: pointer})
+	})
+	s.on(c, "pointerleave", true, func(e js.Value) {
+		if !primary(e) {
+			return
+		}
+		s.send(platform.SurfaceEvent{Kind: platform.PointerLeave})
+	})`, `	s.touches = map[int]touchPoint{}
+	s.momentumFn = js.FuncOf(func(_ js.Value, args []js.Value) any {
+		s.w.b.sync(func() {
+			s.stepMomentum(args)
+		})
+		return nil
+	})
+	s.funcs = append(s.funcs, s.momentumFn)
+
+	// The pointer is the primary one of its kind (isPrimary): the mouse,
+	// or the first finger or pen down. The others, as a second finger on
+	// a touchscreen, neither press nor move it, as on Windows and Linux,
+	// where a second finger presses nothing either: it would take the
+	// press of the first, and end it as it lifts.
+	s.on(c, "pointermove", true, func(e js.Value) {
+		pointer, pressure := device(e)
+		if !s.penDown && pointer == platform.PointerTouch {
+			s.touchMove(e, pressure)
+			return
+		}
+		if !primary(e) {
+			return
+		}
+		x, y := s.point(e)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerMove, X: x, Y: y, Mods: s.mods(e), Pointer: pointer, Pressure: pressure})
+		// A button pressed or released while another is held comes as a
+		// move, which pointerdown and pointerup leave out; the desktop's
+		// windows hear each button.
+		if kind, b, ok := chord(e.Get("button").Int(), e.Get("buttons").Int()); ok {
+			ev := platform.SurfaceEvent{Kind: kind, X: x, Y: y, Button: b, Mods: s.mods(e), Pointer: pointer, Pressure: pressure}
+			if kind == platform.PointerDown {
+				s.downX, s.downY = x, y
+				ev.Clicks = s.clicks.Press(b, x, y, uint32(e.Get("timeStamp").Float()), platform.DefaultDoubleClick)
+			}
+			s.send(ev)
+		}
+	})
+	s.on(c, "pointerdown", false, func(e js.Value) {
+		e.Call("preventDefault")
+		pointer, pressure := device(e)
+		if pointer == platform.PointerPen {
+			s.stopMomentum()
+			s.penDown = true
+			clear(s.touches)
+			s.touchScrolling, s.touchPinching, s.touchPinched = false, false, false
+		} else if !s.penDown && pointer == platform.PointerTouch {
+			c.Call("setPointerCapture", e.Get("pointerId"))
+			s.touchDown(e, pressure)
+			return
+		}
+		if !primary(e) {
+			return
+		}
+		s.focus()
+		x, y := s.point(e)
+		button := e.Get("button").Int()
+		switch button {
+		case 3, 4:
+			k := platform.KeyBack
+			if button == 4 {
+				k = platform.KeyForward
+			}
+			s.send(platform.SurfaceEvent{Kind: platform.KeyPressed, Key: k, Mods: s.mods(e)})
+			s.send(platform.SurfaceEvent{Kind: platform.KeyReleased, Key: k, Mods: s.mods(e)})
+			return
+		}
+		c.Call("setPointerCapture", e.Get("pointerId"))
+		b := buttonOf(button)
+		s.downX, s.downY = x, y
+		clicks := s.clicks.Press(b, x, y, uint32(e.Get("timeStamp").Float()), platform.DefaultDoubleClick) // browsers tell no double-click settings
+		s.send(platform.SurfaceEvent{Kind: platform.PointerDown, X: x, Y: y, Button: b, Clicks: clicks, Mods: s.mods(e), Pointer: pointer, Pressure: pressure})
+	})
+	s.on(c, "pointerup", true, func(e js.Value) {
+		pointer, _ := device(e)
+		if pointer == platform.PointerPen {
+			s.penDown = false
+		} else if !s.penDown && pointer == platform.PointerTouch {
+			s.touchUp(e, false)
+			return
+		}
+		if !primary(e) {
+			return
+		}
+		button := e.Get("button").Int()
+		if button == 3 || button == 4 {
+			return
+		}
+		x, y := s.point(e)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerUp, X: x, Y: y, Button: buttonOf(button), Mods: s.mods(e), Pointer: pointer})
+	})
+	// The browser took the pointer, as a touch it scrolls or zooms the
+	// page with, or one the system took: its buttons go up with no
+	// release, and the press commits nothing.
+	s.on(c, "pointercancel", true, func(e js.Value) {
+		pointer, _ := device(e)
+		if pointer == platform.PointerPen {
+			s.penDown = false
+		} else if !s.penDown && pointer == platform.PointerTouch {
+			s.touchUp(e, true)
+			return
+		}
+		if !primary(e) {
+			return
+		}
+		x, y := s.point(e)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerCancel, X: x, Y: y, Mods: s.mods(e), Pointer: pointer})
+	})
+	s.on(c, "pointerleave", true, func(e js.Value) {
+		pointer, _ := device(e)
+		if pointer == platform.PointerPen {
+			s.penDown = false
+		}
+		if !primary(e) {
+			return
+		}
+		s.send(platform.SurfaceEvent{Kind: platform.PointerLeave})
+	})`},
+	{"vendor/github.com/egoist/mygo/internal/web/surface.go", `	gesture := func(e js.Value) {
+		e.Call("preventDefault")
+		scale := e.Get("scale").Float()`, `	gesture := func(e js.Value) {
+		e.Call("preventDefault")
+		if len(s.touches) >= 2 {
+			return
+		}
+		scale := e.Get("scale").Float()`},
+	{"vendor/github.com/egoist/mygo/internal/web/surface.go", `func (s *surface) close() {
+	s.closed = true
+	if s.pending {
+		js.Global().Call("cancelAnimationFrame", s.request)
+	}
+	if !s.observer.IsUndefined() {`, `func (s *surface) close() {
+	s.closed = true
+	if s.pending {
+		js.Global().Call("cancelAnimationFrame", s.request)
+	}
+	s.stopMomentum()
+	if !s.observer.IsUndefined() {`},
+	{"vendor/github.com/egoist/mygo/internal/web/surface.go", `func itoa(n int) string     { return strconv.Itoa(n) }
+func ftoa(f float64) string { return strconv.FormatFloat(f, 'f', -1, 64) }`, `func (s *surface) initPinch(preferA, preferB int) bool {
+	if len(s.touches) < 2 {
+		return false
+	}
+	_, okA := s.touches[preferA]
+	_, okB := s.touches[preferB]
+	if okA && okB && preferA != preferB {
+		s.pinchID1, s.pinchID2 = preferA, preferB
+	} else {
+		i := 0
+		for id := range s.touches {
+			if i == 0 {
+				s.pinchID1 = id
+			} else {
+				s.pinchID2 = id
+				break
+			}
+			i++
+		}
+	}
+	p1, p2 := s.touches[s.pinchID1], s.touches[s.pinchID2]
+	s.pinchMidX = (p1.x + p2.x) * 0.5
+	s.pinchMidY = (p1.y + p2.y) * 0.5
+	s.pinchDist = math.Hypot(p2.x-p1.x, p2.y-p1.y)
+	return true
+}
+
+func (s *surface) touchDown(e js.Value, pressure float64) {
+	s.stopMomentum()
+	pid := e.Get("pointerId").Int()
+	x, y := s.point(e)
+	ts := e.Get("timeStamp").Float()
+	s.touches[pid] = touchPoint{x: x, y: y}
+	if len(s.touches) == 1 {
+		s.focus()
+		s.touchPrimaryID = pid
+		s.touchStartX, s.touchStartY = x, y
+		s.touchLastX, s.touchLastY = x, y
+		s.touchStartTime, s.touchMoveTime = ts, ts
+		s.touchVX, s.touchVY = 0, 0
+		s.touchScrolling, s.touchPinching, s.touchPinched = false, false, false
+		s.downX, s.downY = x, y
+		clicks := s.clicks.Press(0, x, y, uint32(ts), platform.DefaultDoubleClick)
+		s.send(platform.SurfaceEvent{Kind: platform.PointerDown, X: x, Y: y, Button: 0, Clicks: clicks, Mods: s.mods(e), Pointer: platform.PointerTouch, Pressure: pressure})
+		return
+	}
+	if !s.touchScrolling && !s.touchPinching {
+		s.send(platform.SurfaceEvent{Kind: platform.PointerCancel, X: s.touchStartX, Y: s.touchStartY, Mods: s.mods(e), Pointer: platform.PointerTouch})
+	}
+	s.touchScrolling = true
+	s.touchPinching = true
+	s.touchPinched = true
+	s.touchVX, s.touchVY = 0, 0
+	s.initPinch(s.touchPrimaryID, pid)
+}
+
+func (s *surface) touchMove(e js.Value, pressure float64) {
+	pid := e.Get("pointerId").Int()
+	if _, ok := s.touches[pid]; !ok {
+		return
+	}
+	x, y := s.point(e)
+	ts := e.Get("timeStamp").Float()
+	s.touches[pid] = touchPoint{x: x, y: y}
+	if len(s.touches) >= 2 {
+		if !s.touchPinching {
+			s.touchScrolling = true
+			s.touchPinching = true
+			s.touchPinched = true
+			s.initPinch(s.touchPrimaryID, pid)
+			return
+		}
+		p1, ok1 := s.touches[s.pinchID1]
+		p2, ok2 := s.touches[s.pinchID2]
+		if !ok1 || !ok2 {
+			s.initPinch(s.touchPrimaryID, pid)
+			return
+		}
+		midX := (p1.x + p2.x) * 0.5
+		midY := (p1.y + p2.y) * 0.5
+		dist := math.Hypot(p2.x-p1.x, p2.y-p1.y)
+		mods := s.mods(e)
+		if s.pinchDist > 8 && dist > 8 && math.Abs(dist/s.pinchDist-1) > 0.002 {
+			s.send(platform.SurfaceEvent{Kind: platform.PointerZoom, X: midX, Y: midY, Scale: dist / s.pinchDist, Mods: mods})
+			s.pinchDist = dist
+		} else if s.pinchDist <= 8 && dist > 8 {
+			s.pinchDist = dist
+		}
+		if midX != s.pinchMidX || midY != s.pinchMidY {
+			s.send(platform.SurfaceEvent{Kind: platform.PointerScroll, X: midX, Y: midY, DX: s.pinchMidX - midX, DY: s.pinchMidY - midY, Precise: true, Mods: mods})
+			s.pinchMidX, s.pinchMidY = midX, midY
+		}
+		s.touchLastX, s.touchLastY = midX, midY
+		return
+	}
+	s.touchPrimaryID = pid
+	if !s.touchScrolling {
+		dx0, dy0 := x-s.touchStartX, y-s.touchStartY
+		elapsed := ts - s.touchStartTime
+		if elapsed < 450 && dx0*dx0+dy0*dy0 > 64 {
+			s.touchScrolling = true
+			mods := s.mods(e)
+			s.send(platform.SurfaceEvent{Kind: platform.PointerCancel, X: s.touchStartX, Y: s.touchStartY, Mods: mods, Pointer: platform.PointerTouch})
+			s.send(platform.SurfaceEvent{Kind: platform.PointerScroll, X: x, Y: y, DX: s.touchStartX - x, DY: s.touchStartY - y, Precise: true, Mods: mods})
+			if dt := ts - s.touchStartTime; dt > 0 && dt < 200 {
+				s.touchVX = max(-4.5, min(4.5, (x-s.touchStartX)/dt))
+				s.touchVY = max(-4.5, min(4.5, (y-s.touchStartY)/dt))
+			}
+			s.touchLastX, s.touchLastY = x, y
+			s.touchMoveTime = ts
+			return
+		}
+		if elapsed < 450 {
+			return
+		}
+		s.send(platform.SurfaceEvent{Kind: platform.PointerMove, X: x, Y: y, Mods: s.mods(e), Pointer: platform.PointerTouch, Pressure: pressure})
+		s.touchLastX, s.touchLastY = x, y
+		s.touchMoveTime = ts
+		return
+	}
+	dx := s.touchLastX - x
+	dy := s.touchLastY - y
+	if dt := ts - s.touchMoveTime; dt > 0 && dt < 120 {
+		ivx := max(-4.5, min(4.5, (x-s.touchLastX)/dt))
+		ivy := max(-4.5, min(4.5, (y-s.touchLastY)/dt))
+		s.touchVX = s.touchVX*0.4 + ivx*0.6
+		s.touchVY = s.touchVY*0.4 + ivy*0.6
+	} else if ts-s.touchMoveTime >= 120 {
+		s.touchVX, s.touchVY = 0, 0
+	}
+	s.touchLastX, s.touchLastY = x, y
+	s.touchMoveTime = ts
+	if dx != 0 || dy != 0 {
+		s.send(platform.SurfaceEvent{Kind: platform.PointerScroll, X: x, Y: y, DX: dx, DY: dy, Precise: true, Mods: s.mods(e)})
+	}
+}
+
+func (s *surface) touchUp(e js.Value, canceled bool) {
+	pid := e.Get("pointerId").Int()
+	x, y := s.point(e)
+	ts := e.Get("timeStamp").Float()
+	delete(s.touches, pid)
+	if s.touchScrolling || s.touchPinching {
+		if len(s.touches) == 0 {
+			shouldFling := !canceled && !s.touchPinched && ts-s.touchMoveTime <= 60 && math.Hypot(s.touchVX, s.touchVY) > 0.18
+			s.touchScrolling = false
+			s.touchPinching = false
+			s.touchPinched = false
+			if shouldFling {
+				s.startMomentum()
+			} else {
+				s.touchVX, s.touchVY = 0, 0
+			}
+			return
+		}
+		if len(s.touches) == 1 {
+			s.touchPinching = false
+			for id, pt := range s.touches {
+				s.touchPrimaryID = id
+				s.touchLastX, s.touchLastY = pt.x, pt.y
+				s.touchMoveTime = ts
+				s.touchVX, s.touchVY = 0, 0
+				break
+			}
+		}
+		return
+	}
+	s.touchVX, s.touchVY = 0, 0
+	kind := platform.PointerUp
+	if canceled {
+		kind = platform.PointerCancel
+	}
+	s.send(platform.SurfaceEvent{Kind: kind, X: x, Y: y, Button: 0, Mods: s.mods(e), Pointer: platform.PointerTouch})
+}
+
+func (s *surface) stopMomentum() {
+	if s.momentumActive {
+		js.Global().Call("cancelAnimationFrame", s.momentumReq)
+		s.momentumActive = false
+	}
+	s.touchVX, s.touchVY = 0, 0
+}
+
+func (s *surface) startMomentum() {
+	if s.closed {
+		return
+	}
+	if s.momentumActive {
+		js.Global().Call("cancelAnimationFrame", s.momentumReq)
+	}
+	s.momentumActive = true
+	s.momentumLast = 0
+	s.momentumReq = js.Global().Call("requestAnimationFrame", s.momentumFn)
+}
+
+func (s *surface) stepMomentum(args []js.Value) {
+	if !s.momentumActive || s.closed {
+		s.momentumActive = false
+		return
+	}
+	now := 0.0
+	if len(args) > 0 && args[0].Type() == js.TypeNumber {
+		now = args[0].Float()
+	}
+	dt := 16.6
+	if s.momentumLast != 0 && now > s.momentumLast {
+		dt = min(50, now-s.momentumLast)
+	}
+	s.momentumLast = now
+	decay := math.Exp(-dt / 320.0)
+	dx := -s.touchVX * dt
+	dy := -s.touchVY * dt
+	s.touchVX *= decay
+	s.touchVY *= decay
+	if math.Abs(dx) >= 0.25 || math.Abs(dy) >= 0.25 {
+		s.send(platform.SurfaceEvent{
+			Kind:     platform.PointerScroll,
+			X:        s.touchLastX,
+			Y:        s.touchLastY,
+			DX:       dx,
+			DY:       dy,
+			Precise:  true,
+			Momentum: true,
+		})
+	}
+	if math.Hypot(s.touchVX, s.touchVY) < 0.03 {
+		s.momentumActive = false
+		s.touchVX, s.touchVY = 0, 0
+		return
+	}
+	s.momentumReq = js.Global().Call("requestAnimationFrame", s.momentumFn)
+}
+
+func itoa(n int) string     { return strconv.Itoa(n) }
+func ftoa(f float64) string { return strconv.FormatFloat(f, 'f', -1, 64) }`},
 }
 
 func applySourcePatch(src string, p sourcePatch) (string, error) {

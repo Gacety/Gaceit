@@ -127,3 +127,46 @@ func TestCanvasPenOverQuestionAndTrackpadInteraction(t *testing.T) {
 		f.Close()
 	}
 }
+
+func TestCanvasTouchPansWhileEraserAndLassoSelected(t *testing.T) {
+	a := testApp(t)
+	a.SetTool("scratch")
+	tt := ui.NewTester(a.View, 1440, 900)
+	ed := a.inkEditor
+	// Draw a stroke on blank paper to the left of the question card with a pen.
+	tt.UsePointer(ui.PointerPen, 0.7)
+	tt.Press(120, 260)
+	tt.Move(200, 260)
+	tt.Release(200, 260)
+	if len(ed.Snapshot().Strokes) != 1 {
+		t.Fatalf("expected 1 pen stroke, got %d", len(ed.Snapshot().Strokes))
+	}
+
+	for _, tool := range []string{"eraser", "lasso"} {
+		ed.SetTool(tool)
+		before := ed.Camera().Offset
+		tt.UsePointer(ui.PointerTouch, 0)
+		tt.Press(140, 260)
+		tt.Move(220, 310)
+		tt.Release(220, 310)
+		after := ed.Camera().Offset
+		if after == before {
+			t.Fatalf("touch drag with %s selected did not pan canvas", tool)
+		}
+		if len(ed.Snapshot().Strokes) != 1 {
+			t.Fatalf("touch drag with %s selected modified stroke", tool)
+		}
+	}
+
+	// Reset camera home and verify pen eraser still erases the stroke.
+	ed.Home()
+	ed.SetTool("eraser")
+	tt.Frame()
+	tt.UsePointer(ui.PointerPen, 0.7)
+	tt.Press(150, 250)
+	tt.Move(170, 270)
+	tt.Release(170, 270)
+	if len(ed.Snapshot().Strokes) != 0 {
+		t.Fatalf("pen eraser did not erase stroke, remaining: %d", len(ed.Snapshot().Strokes))
+	}
+}

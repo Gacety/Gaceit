@@ -279,8 +279,8 @@ func (a *App) selectedDrawSubjects() []string {
 }
 func (a *App) randomPage(c *ui.Context) {
 	a.boardTitle(c, "随机练习", "设定范围和题量，系统随机抽题")
-	a.passBar(c)
-	ui.Scroll(c.Key("random-setup")).Grow(1).MinHeight(0).Children(func() {
+	ui.Scroll(c.Key("random-setup")).Grow(1).MinHeight(0).Gap(20).Children(func() {
+		a.passBar(c)
 		ui.Row(c).Gap(24).AlignItems(ui.Start).Children(func() {
 			a.boardCard(c).Grow(1).MinWidth(0).Padding(28).Gap(24).Children(func() {
 				ui.Column(c).Gap(10).Children(func() {

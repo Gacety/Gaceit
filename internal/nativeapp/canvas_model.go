@@ -315,7 +315,7 @@ func (a *App) canvasPaperInput(e ui.InputEvent) bool {
 	if e.Pointer == ui.PointerPen {
 		return a.canvasInput(e)
 	}
-	if a.inkEditor.Tool() == "pen" || a.inkEditor.Tool() == "pencil" || a.inkEditor.Tool() == "highlighter" || a.inkEditor.Panning() {
+	if e.Pointer == ui.PointerTouch || a.inkEditor.Tool() == "pen" || a.inkEditor.Tool() == "pencil" || a.inkEditor.Tool() == "highlighter" || a.inkEditor.Panning() {
 		if e.Kind == ui.InputPointerDown || e.Kind == ui.InputPointerUp {
 			if e.Button == 0 {
 				e.Button = 2

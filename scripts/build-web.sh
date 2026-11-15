@@ -2,6 +2,8 @@
 set -eu
 cd "$(dirname "$0")/.."
 
+go run ./scripts/mygo-tablet-patch
+
 OUT="dist-web"
 rm -rf "$OUT"
 mkdir -p "$OUT"
