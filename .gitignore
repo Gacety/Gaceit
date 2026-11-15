@@ -4,5 +4,6 @@
 **/.vite/
 
 build/
+dist-web/
 .local-data/
 .impeccable/runtime/

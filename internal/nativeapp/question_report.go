@@ -2,10 +2,8 @@ package nativeapp
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"maps"
-	"os"
 	"path/filepath"
 	"slices"
 	"sort"
@@ -236,43 +234,6 @@ func (m *Model) QuestionReportsFilePath() string {
 	return filepath.Join(filepath.Dir(m.Disk.Path), questionReportsFilename)
 }
 
-func (m *Model) syncQuestionReportsFile() error {
-	path := m.QuestionReportsFilePath()
-	if path == "" {
-		return nil
-	}
-	if len(m.Reports) == 0 {
-		if _, err := os.Stat(path); errors.Is(err, os.ErrNotExist) {
-			return nil
-		}
-	}
-	data, err := m.ExportQuestionReportsJSON()
-	if err != nil {
-		return err
-	}
-	if err := os.MkdirAll(filepath.Dir(path), 0700); err != nil {
-		return err
-	}
-	f, err := os.CreateTemp(filepath.Dir(path), ".question-reports-*")
-	if err != nil {
-		return err
-	}
-	tmp := f.Name()
-	defer os.Remove(tmp)
-	if _, err := f.Write(data); err != nil {
-		f.Close()
-		return err
-	}
-	if err := f.Sync(); err != nil {
-		f.Close()
-		return err
-	}
-	if err := f.Close(); err != nil {
-		return err
-	}
-	return os.Rename(tmp, path)
-}
-
 func (m *Model) FormatQuestionReportPrompt(qID string, draft *QuestionReport) string {
 	idx := m.Find(qID)
 	if idx < 0 {
@@ -491,6 +452,9 @@ func (a *App) questionReportSection(c *ui.Context, q *Question) {
 			}
 			if a.exactButton(c, "复制 AI 修题指令").Height(a.qs(34)).Padding(0, a.qs(12)).Radius(a.qs(8)).Border(a.qs(1), t.Border).Background(t.Surface).TextColor(t.Text).FontSize(a.qs(13)).Clicked() {
 				a.copyReportPrompt(c, q.ID, true)
+			}
+			if a.exactButton(c, "导出报错 JSON").Height(a.qs(34)).Padding(0, a.qs(12)).Radius(a.qs(8)).Border(a.qs(1), t.Border).Background(t.Surface).TextColor(t.Text).FontSize(a.qs(13)).Clicked() {
+				a.exportQuestionReports()
 			}
 			if rep != nil {
 				if a.exactButton(c, "删除报错").Height(a.qs(34)).Padding(0, a.qs(12)).Radius(a.qs(8)).Border(a.qs(1), t.Danger.Alpha(.4)).TextColor(t.Danger).FontSize(a.qs(13)).Clicked() {

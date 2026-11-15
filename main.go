@@ -134,14 +134,10 @@ func main() {
 		log.Fatal(err)
 	}
 	if *dataDir == "" {
-		root, err := os.UserConfigDir()
+		var err error
+		*dataDir, err = defaultDataDir(bankSlug)
 		if err != nil {
 			log.Fatal(err)
-		}
-		if bankSlug != "" {
-			*dataDir = filepath.Join(root, "408研习", "banks", bankSlug)
-		} else {
-			*dataDir = filepath.Join(root, "408研习")
 		}
 	}
 	a, err := nativeapp.New(appAssets, &store.Store{Path: filepath.Join(*dataDir, "progress.json")})

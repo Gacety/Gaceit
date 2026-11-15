@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>408 研习</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #faf9f5;
+      --card: #ffffff;
+      --border: #e2e0d8;
+      --text: #22241f;
+      --muted: #6e7268;
+      --accent: #465b48;
+      --track: #e9e7df;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #13141a;
+        --card: #1d1f28;
+        --border: #2b2e3a;
+        --text: #ecedf3;
+        --muted: #a5a9b8;
+        --accent: #a78bfa;
+        --track: #2b2e3a;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    }
+    #mygo {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #boot-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--bg);
+      transition: opacity 0.25s ease;
+    }
+    #boot-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .boot-card {
+      width: min(420px, 100%);
+      padding: 28px 26px;
+      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+    }
+    .boot-title {
+      margin: 0 0 6px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .boot-sub {
+      margin: 0 0 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .boot-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--track);
+      overflow: hidden;
+    }
+    .boot-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 0.15s ease;
+    }
+    .boot-meta {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .boot-err {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(220, 38, 38, 0.12);
+      color: #ef4444;
+      font-size: 13px;
+      line-height: 1.5;
+      display: none;
+      word-break: break-word;
+    }
+  </style>
+  <script src="./wasm_exec.js"></script>
+</head>
+<body>
+  <div id="mygo"></div>
+  <div id="boot-overlay" role="status" aria-live="polite">
+    <div class="boot-card">
+      <h1 class="boot-title">408 研习</h1>
+      <p class="boot-sub">正在加载 WebAssembly 原生界面、题库与离线公式资源（首次加载后将自动缓存在浏览器中）。</p>
+      <div class="boot-track"><div class="boot-fill" id="boot-fill"></div></div>
+      <div class="boot-meta">
+        <span id="boot-status">正在下载应用内核…</span>
+        <span id="boot-pct">0%</span>
+      </div>
+      <div class="boot-err" id="boot-err"></div>
+    </div>
+  </div>
+  <script>
+    (async function boot() {
+      const overlay = document.getElementById("boot-overlay");
+      const fill = document.getElementById("boot-fill");
+      const statusEl = document.getElementById("boot-status");
+      const pctEl = document.getElementById("boot-pct");
+      const errEl = document.getElementById("boot-err");
+
+      function fail(msg) {
+        statusEl.textContent = "加载失败";
+        errEl.style.display = "block";
+        errEl.textContent = msg;
+      }
+
+      if (!("WebAssembly" in window)) {
+        fail("当前浏览器不支持 WebAssembly，请升级至最新版 Chrome、Edge、Safari 或 Firefox。");
+        return;
+      }
+
+      try {
+        const res = await fetch("./study408.wasm");
+        if (!res.ok) {
+          throw new Error("HTTP " + res.status + " " + res.statusText);
+        }
+        const total = Number(res.headers.get("Content-Length") || 0);
+        let bytes;
+
+        if (res.body && res.body.getReader) {
+          const reader = res.body.getReader();
+          const chunks = [];
+          let received = 0;
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+            received += value.byteLength;
+            const mb = (received / (1024 * 1024)).toFixed(1);
+            if (total > 0) {
+              const pct = Math.min(100, Math.round((received / total) * 100));
+              fill.style.width = pct + "%";
+              pctEl.textContent = pct + "%";
+              statusEl.textContent = "已下载 " + mb + " / " + (total / (1024 * 1024)).toFixed(1) + " MB";
+            } else {
+              fill.style.width = "65%";
+              pctEl.textContent = mb + " MB";
+              statusEl.textContent = "正在下载应用内核…";
+            }
+          }
+          bytes = new Uint8Array(received);
+          let offset = 0;
+          for (const chunk of chunks) {
+            bytes.set(chunk, offset);
+            offset += chunk.byteLength;
+          }
+        } else {
+          bytes = new Uint8Array(await res.arrayBuffer());
+        }
+
+        fill.style.width = "100%";
+        pctEl.textContent = "100%";
+        statusEl.textContent = "正在初始化 WebGL 2 界面与题库…";
+
+        const go = new Go();
+        const result = await WebAssembly.instantiate(bytes.buffer, go.importObject);
+
+        const hideWhenMounted = () => {
+          const root = document.getElementById("mygo");
+          if (root && root.querySelector("canvas")) {
+            overlay.classList.add("hidden");
+            setTimeout(() => overlay.remove(), 300);
+            return true;
+          }
+          return false;
+        };
+
+        const observer = new MutationObserver(() => {
+          if (hideWhenMounted()) {
+            observer.disconnect();
+          }
+        });
+        observer.observe(document.getElementById("mygo"), { childList: true, subtree: true });
+
+        go.run(result.instance).catch((e) => {
+          fail("运行异常：" + (e && e.message ? e.message : String(e)));
+        });
+
+        setTimeout(() => {
+          if (!hideWhenMounted() && errEl.style.display !== "block") {
+            statusEl.textContent = "正在启动首帧渲染…";
+          }
+        }, 1200);
+      } catch (e) {
+        fail("无法加载 study408.wasm：" + (e && e.message ? e.message : String(e)));
+      }
+    })();
+  </script>
+</body>
+</html>
